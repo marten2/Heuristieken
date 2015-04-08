@@ -7,9 +7,7 @@ def loadData(filename):
 		for i, d in enumerate(data):
 			land = d.split(";")[1:]
 			temp = []
-			print i
 			for j, a  in enumerate(land):
-				print a
 				if int(a) == 1:
 					temp.append(j)
 
