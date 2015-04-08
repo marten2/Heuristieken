@@ -7,3 +7,6 @@ def getLongest(list):
 		if element[1].length > longest:
 			longest = element[1].length
 	return longest
+
+	''' Colors a country '''
+	return countrylist
