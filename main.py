@@ -1,6 +1,13 @@
 import loadin
 import modifydata
+import algorithm
 
-data = loadData("IndiaData.csv")
+if __name__ == "__main__":
+	colorSets = [["G", "Y"],["R", "B"]] 
+	data = loadin.loadData("IndiaData.csv")
+	countryColorList = [None] * len(data) 
+	start = modifydata.getLongest(data)
+	print start
 
-modifydata.neighbours(data)
+	#countryColorList = algorithm.ShellMain(start, data, countryColorList, colorSets)
+	print countryColorList
