@@ -1,7 +1,7 @@
-def getLongest(list):
+def getLongest(edgeData):
 	''' Returns country with most connections '''
 	longest = []
-	for element in list:
+	for element in edgeData:
 		if element[1].length > longest:
 			longest = element[1].length
 	return longest
@@ -25,13 +25,10 @@ def determineColor(colors, edgeData, country, countryColorList):
 def selectCountry(edgeData, longest, countryColorList):
 ''' Returns right country to be colored, using a breadth-first algorithm '''
 	
-	''''countryColorList[longest] == colors[0]
-	country = edgeData[longest]
+	'''countryColorList[longest] == colors[0]
+	country = edgeData[longest] 
 
 	for i in range (0, len(edgeData)):
 		for neighbours in country[1]:
 			return country'''
-
-
-
 
