@@ -12,7 +12,7 @@ def determineColor(colors, edgeData, country, countryColorList):
 	''' Returns appropriate color for country, aims for the lowest position possible in color list '''
 	temp = edgeData[country]
 
-	i = 0
+	color = ""
 	borderColorList = []
 
 	# make list of colors of borders
@@ -21,12 +21,13 @@ def determineColor(colors, edgeData, country, countryColorList):
 
 	# compare border colors with color of country
 	# change to higher color if colors are the same
-	for border in temp[1]:
-		if colors[i] in borderColorList:
-			i = i+1
+	for coll in colors:
+		if coll not in borderColorList:
+			color = coll
+			break
 	
 	# add color of country to list of countries' colors
-	countryColorList[country] = colors[i]
+	countryColorList[country] = color
 
 	return countryColorList
 
@@ -56,11 +57,9 @@ def lowestColor(data, start, countryColorList, colors):
 		
 		# exit if done
 		if len(shell) == 0:
-			break
+			# that's all folks
+			return countryColorList
 
 		# color countries in shell
 		for country in shell:
 			countryColorList = determineColor(colors, data, country, countryColorList)
-
-	# that's all folks
-	return countryColorList
