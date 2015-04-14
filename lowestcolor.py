@@ -6,19 +6,21 @@ def getLongest(edgeData):
 		if len(element[1]) > longest:
 			longest = len(element[1])
 			output = element[0]
-	print output
 	return output
 
-# colors = [blue, red, yellow, green]
 def determineColor(colors, edgeData, country, countryColorList):
 	''' Returns appropriate color for country '''
 	temp = edgeData[country]
 	i = 0
+
 	for border in temp[1]:
 		if countryColorList[border] == colors[i]:
 			i = i+1
 	
-	countryColorList[country] == colors[i]
+	print country + 1
+
+	countryColorList[country] = colors[i]
+
 	return countryColorList
 
 def ShellSelect(shell, edgeData, countryColorList):
@@ -28,8 +30,9 @@ def ShellSelect(shell, edgeData, countryColorList):
 	for e in shell:
 		# copy elements not lists
 		for a in edgeData[e][1]:
-			if not countryColorList[a]:
-				totalConnections.append(a)
+			if a not in totalConnections:
+				if not countryColorList[a]:
+					totalConnections.append(a)
 
 	# return the shell
 	return totalConnections
@@ -39,15 +42,15 @@ def LowestColor(data, start, countryColorList, colors):
 	shell = [start] 
 
 	while(True):
-		
+
 		# determine countries to be colored
-		totalConnections = ShellSelect(shell, data, countryColorList)
+		shell = ShellSelect(shell, data, countryColorList)
 		
 		# exit if done
 		if len(shell) == 0:
 			break
 
-		for country in totalConnections:
+		for country in shell:
 			countryColorList = determineColor(colors, data, country, countryColorList)
 
-		return countryColorList
+	return countryColorList
