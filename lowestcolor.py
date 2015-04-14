@@ -1,16 +1,13 @@
 def getLongest(edgeData):
 	''' Returns country with most connections '''
-<<<<<<< HEAD
-	longest = []
+	longest = 0
+	output = 0
 	for element in edgeData:
-		if element[1].length > longest:
-			longest = element[1].length
-	return longest
-
-def makeColor(countryColorList, country, color):
-	''' Colors a country '''
-	countryColorList[country] == color
-	return countryColorList
+		if len(element[1]) > longest:
+			longest = len(element[1])
+			output = element[0]
+	print output
+	return output
 
 # colors = [blue, red, yellow, green]
 def determineColor(colors, edgeData, country, countryColorList):
@@ -19,50 +16,13 @@ def determineColor(colors, edgeData, country, countryColorList):
 	i = 0
 	for border in temp[1]:
 		if countryColorList[border] == colors[i]:
-			i++
-	print colors[i]
-	return colors[i]
-
-def selectCountry(edgeData, longest, countryColorList):
-''' Returns right country to be colored, using a breadth-first algorithm '''
+			i = i+1
 	
-	'''countryColorList[longest] == colors[0]
-	country = edgeData[longest] 
-
-	for i in range (0, len(edgeData)):
-		for neighbours in country[1]:
-			return country'''
-=======
-	longest = 0
-	output = 0
-	for element in edgeData:
-		if len(element[1]) > longest:
-			longest = len(element[1])
-			output = element[0]
-	print longest
-	print output
-	return output
-
-# def makeColor(countryColorList, country, color):
-# 	''' Colors a country '''
-# 	countryColorList[country] = color
-# 	return countryColorList
-
-# # colors = [blue, red, yellow, green]
-# def determineColor(colors, edgeData, country, countryColorList):
-# 	''' Returns appropriate color for country '''
-# 	temp = edgeData[country]
-# 	i = 0
-# 	for border in temp[1]:
-# 		if countryColorList[border] == colors[i]:
-# 			i++
-# 	print colors[i]
-# 	return colors[i]
-
+	countryColorList[country] == colors[i]
+	return countryColorList
 
 def ShellSelect(shell, edgeData, countryColorList):
 	totalConnections = []
-	newShell = []
 
 	# sellect all possible connection for next shell
 	for e in shell:
@@ -71,11 +31,23 @@ def ShellSelect(shell, edgeData, countryColorList):
 			if not countryColorList[a]:
 				totalConnections.append(a)
 
-	# filter all connection to only get next shell
-	for e in totalConnections:
-		for a in edgeData[e][1]:
-			if a not in totalConnections:
-				newShell.append(e)
-
 	# return the shell
-	return newShell
+	return totalConnections
+
+def LowestColor(data, start, countryColorList, colors):
+
+	shell = [start] 
+
+	while(True):
+		
+		# determine countries to be colored
+		totalConnections = ShellSelect(shell, data, countryColorList)
+		
+		# exit if done
+		if len(shell) == 0:
+			break
+
+		for country in totalConnections:
+			countryColorList = determineColor(colors, data, country, countryColorList)
+
+		return countryColorList
