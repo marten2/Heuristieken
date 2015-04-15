@@ -32,3 +32,5 @@ if __name__ == "__main__":
 	# print results 	
  	print countryColorList
  	print output
+
+ 	graph.makeGraph(countryColorList, data)
