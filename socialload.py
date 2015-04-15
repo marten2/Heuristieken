@@ -12,12 +12,10 @@ def loadData(filename):
 		for i in range(length + 1):
 			output.append([i,[]])
 
-		print output, len(output)
-
 		for d in data:
-			print d[0], d[1]
-			output[d[0]][1].append(d[1])
-			output[d[1]][1].append(d[0])
+			if d[0] != d[1]:
+				output[d[0]][1].append(d[1])
+				output[d[1]][1].append(d[0])
 
 		return output
 
@@ -27,7 +25,6 @@ def getLength(data):
 		for a in l:
 			if a > high:
 				high = a
-				print high
 	return high
 if __name__ == "__main__":
 	loadData("network1.txt")
