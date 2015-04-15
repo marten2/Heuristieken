@@ -12,7 +12,6 @@ def loadData(filename):
 					temp.append(j)
 
 			output.append([i, temp])
-	print output
 	return output
 
 if __name__ == "__main__":
