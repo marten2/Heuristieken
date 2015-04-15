@@ -6,6 +6,6 @@ def Checklist(CCL, edgeData):
 				output.append([b, a[0]])
 
 	if output:
-		return  output
+		return output
 	else:
 		return "Good job!"

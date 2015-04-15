@@ -21,9 +21,9 @@ def determineColor(colors, edgeData, country, countryColorList):
 
 	# compare border colors with color of country
 	# change to higher color if colors are the same
-	for coll in colors:
-		if coll not in borderColorList:
-			color = coll
+	for c in colors:
+		if c not in borderColorList:
+			color = c
 			break
 	
 	# add color of country to list of countries' colors
