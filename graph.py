@@ -10,26 +10,19 @@ def makeGraph(countryColorList, edgeData):
 	
 	G=nx.Graph()
 	i = 0 
+	colors = ['r', 'g', 'y', 'b', 'o', 'c']
 
 	for element in edgeData:
 		G.add_node(element[0])
-<<<<<<< HEAD
 		G.node_color = colors[countryColorList[i]]
 		
-=======
-		node_color = countryColorList[i]
->>>>>>> parent of e79e0ed... graph
 		i = i + 1
 
 	for element in edgeData:
 		for edge in element[1]:
 			G.add_edge(element[0], edge)
 
-	print("Nodes of graph: ")
-	print(G.nodes())
-	print("Edges of graph: ")
-	print(G.edges())
-	
+
 	nx.draw(G)
 	plt.draw()
 	plt.show()
