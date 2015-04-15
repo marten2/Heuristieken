@@ -8,11 +8,11 @@ def getLongest(edgeData):
 			output = element[0]
 	return output
 
-def determineColor(colors, edgeData, country, countryColorList):
+def determineColor(edgeData, country, countryColorList):
 	''' Returns appropriate color for country, aims for the lowest position possible in color list '''
 	temp = edgeData[country]
 
-	color = ""
+	color = 0
 	borderColorList = []
 
 	# make list of colors of borders
@@ -21,7 +21,7 @@ def determineColor(colors, edgeData, country, countryColorList):
 
 	# compare border colors with color of country
 	# change to higher color if colors are the same
-	for c in colors:
+	for c in range(len(temp[1]) + 1):
 		if c not in borderColorList:
 			color = c
 			break
@@ -46,7 +46,7 @@ def shellSelect(shell, edgeData, countryColorList):
 	# return the shell
 	return totalConnections
 
-def lowestColor(data, start, countryColorList, colors):
+def lowestColor(data, start, countryColorList):
 	''' Calls functions to color the map '''
 	shell = [start] 
 
@@ -62,4 +62,4 @@ def lowestColor(data, start, countryColorList, colors):
 
 		# color countries in shell
 		for country in shell:
-			countryColorList = determineColor(colors, data, country, countryColorList)
+			countryColorList = determineColor(data, country, countryColorList)

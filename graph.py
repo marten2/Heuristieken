@@ -14,7 +14,7 @@ def makeGraph(countryColorList, edgeData):
 
 	for element in edgeData:
 		G.add_node(element[0])
-		node_color = colors[countryColorList[i]]
+		G.node_color = colors[countryColorList[i]]
 		
 		i = i + 1
 

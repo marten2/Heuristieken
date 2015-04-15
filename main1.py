@@ -6,9 +6,12 @@ import graph
 
 # main for lowestcolor algorithm
 if __name__ == "__main__":
+<<<<<<< HEAD
 	# make sure color list has enough colors
  	colors = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
+=======
+>>>>>>> 3914295016f6f13bc374c06bbbcec27cc67f5e97
  	# load data
  	data = socialload.loadData("network1.txt")
  	# data = loadin.loadData("IndiaData.csv")
@@ -20,7 +23,7 @@ if __name__ == "__main__":
  	start = lowestcolor.getLongest(data)
 
  	# color countries
-	countryColorList = lowestcolor.lowestColor(data, start, countryColorList, colors)
+	countryColorList = lowestcolor.lowestColor(data, start, countryColorList)
 
 	for i, a in enumerate(countryColorList):
 		if a == None:
