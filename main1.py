@@ -6,9 +6,9 @@ import socialload
 # main for lowestcolor algorithm
 if __name__ == "__main__":
  	# load data
- 	data = socialload.loadData("network1.txt")
+ 	# data = socialload.loadData("network1.txt")
  	print data
- 	# data = loadin.loadData("IndiaData.csv")
+ 	data = loadin.loadData("IndiaData.csv")
 
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 
