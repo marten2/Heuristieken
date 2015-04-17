@@ -2,29 +2,21 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 # problem with this is that it draws all borders twice 
-# and that numpy is not downloaded yet
 def makeGraph(countryColorList, edgeData):
 	''' Draws a graph of the countries and their borders, 
-	gives each country the color determined with the functions
-	in modifydata'''
+	gives each country the color determined by algorithm'''
 	
 	G=nx.Graph()
-	i = 0 
-
+	
+	# draw node for each data element and give it the corresponding color
 	for element in edgeData:
 		G.add_node(element[0])
-		node_color = countryColorList[i]
-		i = i + 1
 
+	# draw connections between data elements
 	for element in edgeData:
 		for edge in element[1]:
 			G.add_edge(element[0], edge)
 
-	print("Nodes of graph: ")
-	print(G.nodes())
-	print("Edges of graph: ")
-	print(G.edges())
-	
-	nx.draw(G)
-	plt.draw()
+	# draw and show graph	
+	nx.draw(G, node_color=countryColorList)
 	plt.show()
