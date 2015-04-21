@@ -6,17 +6,8 @@ import graph
 
 # main for lowestcolor algorithm
 if __name__ == "__main__":
-<<<<<<< HEAD
- 	# load data
- 	# data = socialload.loadData("network1.txt")
- 	print data
-=======
-
- 	# load social data
- 	# data = socialload.loadData("network1.txt")
-
+	
  	# load map data
->>>>>>> 7baab70e69dfad0d25c7ac207b88ae92d909ff01
  	data = loadin.loadData("IndiaData.csv")
 
  	# make empty array for storing colors
