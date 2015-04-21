@@ -6,13 +6,13 @@ def buildFigures(edgeData):
 
 		# checklist invelops all the figures of the triangle 
 		checklist = []
-
+		temp = [e[0], []]
 		# look per connection country 
 		for a in e[1]:
 			checklist.append(e[0])
 			print checklist
-			temp = [e[0],[a]]
-			# recursivebuild(temp, a, edgeData, checklist)
+			temp[1].append(a)
+			recursivebuild(temp, a, edgeData, checklist)
 			output.append(temp)
 
 	return output
