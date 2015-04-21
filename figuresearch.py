@@ -5,13 +5,12 @@ def buildFigures(edgeData):
 	for e in edgeData:
 
 		# checklist invelops all the figures of the triangle 
-		checklist = []
-		temp = [e[0], []]
+
+		checklist = [e[0]]
 		# look per connection country 
 		for a in e[1]:
-			checklist.append(e[0])
 			print checklist
-			temp[1].append(a)
+			temp = [e[0],[a]]
 			recursivebuild(temp, a, edgeData, checklist)
 			output.append(temp)
 
@@ -21,14 +20,13 @@ def buildFigures(edgeData):
 def recursivebuild(temp, a, edgeData, checklist):
 	
 	# loop through connected data points checking if data is connected to other data point in figure. 
-	for b in edgeData[a][1]:
-		for c in checklist:
-			if b not in c:
-				break
-			else: 
+	if a not in checklist:
+		for b in edgeData[a][1]:
+			if b in checklist:
 				# add item if connected and check if there are more items in the connection
 				temp[1].append(b)
-				checklist.append(edgeData[a][1])
+				checklist.append(a)
+				print checklist
 				temp = recursivebuild(temp, b, edgeData, checklist)
 
 	return temp
