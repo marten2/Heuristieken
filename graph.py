@@ -7,16 +7,19 @@ def makeGraph(countryColorList, edgeData):
 	gives each country the color determined by algorithm'''
 	
 	G=nx.Graph()
-	
+
 	# draw node for each data element and give it the corresponding color
 	for element in edgeData:
 		G.add_node(element[0])
+
 
 	# draw connections between data elements
 	for element in edgeData:
 		for edge in element[1]:
 			G.add_edge(element[0], edge)
 
+	node_labels = [] 
+
 	# draw and show graph	
-	nx.draw(G, node_color=countryColorList)
+	nx.draw(G, pos=nx.spring_layout(G), node_color=countryColorList)
 	plt.show()

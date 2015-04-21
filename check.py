@@ -13,8 +13,7 @@ def Checklist(CCL, edgeData):
 
 	colors = colors + 1
 	
-	print "Amount of colors used:" 
-	print colors
+	print "Amount of colors used:" + str(colors)
 
 	if output:
 		return output

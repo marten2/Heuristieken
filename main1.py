@@ -17,8 +17,7 @@ if __name__ == "__main__":
  	start = lowestcolor.getLongest(data)
 
  	# print maximum of connections
- 	print "Maximum connections:"
- 	print len(data[start][1])
+ 	print "Maximum connections:" + str(len(data[start][1]))
 
  	# color countries
 	countryColorList = lowestcolor.lowestColor(data, start, countryColorList)
@@ -32,7 +31,7 @@ if __name__ == "__main__":
 	# print results 	
 	print "Colors:"
  	print countryColorList
- 	
+ 	 
  	print output
 
  	graph.makeGraph(countryColorList, data)
