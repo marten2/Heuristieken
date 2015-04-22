@@ -5,6 +5,13 @@ def Checklist(CCL, edgeData):
 			if CCL[b] == CCL[a[0]]:
 				output.append([b, a[0]])
 
+	if output:
+		return output
+	else:
+		return "No errors found"
+
+def checkColors(CCL):
+	# count number of colors used
 	colors = 0
 
 	for a in CCL:
@@ -12,10 +19,5 @@ def Checklist(CCL, edgeData):
 			colors = a
 
 	colors = colors + 1
-	
-	print "Amount of colors used:" + str(colors)
 
-	if output:
-		return output
-	else:
-		return "No errors found"
+	return colors
