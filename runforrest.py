@@ -1,5 +1,5 @@
 import main1
-import makeplot
+#import makeplot
 import csv
 
 # make sure the make graph and prints in main1 are turned off before you run this

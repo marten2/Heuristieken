@@ -14,7 +14,7 @@ def main():
  	# load social data
  	#data = socialload.loadData('socialconnections.txt')
 
- 	randomconnections.randomConnections()
+ 	totalConnections = randomconnections.randomConnections()
 
  	# load random social data
  	data = socialload.loadData('connections.txt')
@@ -49,7 +49,7 @@ def main():
 
  	#graph.makeGraph(countryColorList, data)
 
- 	return [maximum, colors]
+ 	return [totalConnections, colors]
 
 if __name__ == "__main__":
 	main()
