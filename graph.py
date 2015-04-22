@@ -12,7 +12,6 @@ def makeGraph(countryColorList, edgeData):
 	for element in edgeData:
 		G.add_node(element[0])
 
-
 	# draw connections between data elements
 	for element in edgeData:
 		for edge in element[1]:

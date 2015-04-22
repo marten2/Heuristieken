@@ -39,19 +39,12 @@ def main():
 	# check if correct
 	output = check.Checklist(countryColorList, data)
 	
-	# count number of colors used
-	colors = 0
-
-	for a in countryColorList:
-		if a > colors:
-			colors = a
-
-	colors = colors + 1
+	colors = check.checkColors(countryColorList)
 
 	# print results 	
 	#print "Colors:"
  	#print countryColorList
-	#print "Number of colors used: + str(colors)"	 
+	#print "Number of colors used:" + str(colors)	 
  	#print output
 
  	#graph.makeGraph(countryColorList, data)

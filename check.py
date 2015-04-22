@@ -9,3 +9,15 @@ def Checklist(CCL, edgeData):
 		return output
 	else:
 		return "No errors found"
+
+def checkColors(CCL):
+	# count number of colors used
+	colors = 0
+
+	for a in CCL:
+		if a > colors:
+			colors = a
+
+	colors = colors + 1
+
+	return colors
