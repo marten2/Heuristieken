@@ -49,6 +49,8 @@ def main():
 
  	#graph.makeGraph(countryColorList, data)
 
+ 	print graph.maxClique(data)
+
  	return [maximum, colors]
 
 if __name__ == "__main__":
