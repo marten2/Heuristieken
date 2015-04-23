@@ -14,7 +14,7 @@ def main():
  	# load social data
  	#data = socialload.loadData('socialconnections.txt')
 
- 	totalConnections = randomconnections.randomConnections()
+ 	totalConnections = randomconnections.randomConnections(1000, 6000, 6000)
 
  	# load random social data
  	data = socialload.loadData('connections.txt')
@@ -42,12 +42,12 @@ def main():
 	colors = check.checkColors(countryColorList)
 
 	# print results 	
-	#print "Colors:"
- 	#print countryColorList
-	#print "Number of colors used:" + str(colors)	 
- 	#print output
+	print "Colors:"
+ 	print countryColorList
+	print "Number of colors used:" + str(colors)	 
+ 	print output
 
- 	#graph.makeGraph(countryColorList, data)
+ 	graph.makeGraph(countryColorList, data)
 
  	return [totalConnections, colors]
 

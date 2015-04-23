@@ -11,4 +11,4 @@ def makePlot(filename):
 	plt.ylabel("Total amount of colors used")
 	plt.show()
 
-makePlot('experimentaldata.csv')
+makePlot('tot_con_vs_col_10000_cycles_1000_nodes_1000_10000_con.csv')
