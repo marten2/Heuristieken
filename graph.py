@@ -18,8 +18,6 @@ def makeGraph(countryColorList, edgeData):
 		for edge in element[1]:
 			G.add_edge(element[0], edge)
 
-	node_labels = [] 
-
 	# draw and show graph	
 	nx.draw(G, pos=nx.spring_layout(G), node_color=countryColorList)
 	plt.show()
