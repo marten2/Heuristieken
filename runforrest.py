@@ -15,4 +15,4 @@ def run(n):
 		output[0] = str(output[0])
 		output[1] = str(output[1])
 		c.writerow(output)
-run(10000)
+run(20)

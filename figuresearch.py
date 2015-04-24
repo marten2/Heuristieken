@@ -53,11 +53,7 @@ def findBiggestClique(figurelist):
 			if len(figure) > size:
 				size = len(figure)
 	return size + 1
-
-
-def cliqueCouloring(start, figurelist):
-	figurelist[start][0] = 0
-	for e in figurelist[start][1] 	
+	
 
 
 
