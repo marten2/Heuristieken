@@ -13,12 +13,12 @@ def main():
  	#data = loadin.loadData("IndiaData.csv")
 
  	# load social data
- 	#data = socialload.loadData('socialconnections.txt')
+ 	data = socialload.loadData('network1.txt')
 
- 	totalConnections = randomconnections.randomConnections(1000, 6000, 6000)
+ 	# totalConnections = randomconnections.randomConnections(1000, 6000, 6000)
 
  	# load random social data
- 	data = socialload.loadData('connections.txt')
+ 	# data = socialload.loadData('connections.txt')
 
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 
@@ -36,7 +36,7 @@ def main():
 
 	for i, a in enumerate(countryColorList):
 		if a == None:
-			countryColorList[i] = 1
+			countryColorList = lowestcolor.lowestColor(data, i, countryColorList)
 	# check if correct
 	output = check.Checklist(countryColorList, data)
 	
