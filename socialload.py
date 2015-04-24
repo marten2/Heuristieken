@@ -24,6 +24,7 @@ def importData(filename):
 				temp[0] = int(temp[0])
 				temp[1] = int(temp[1])
 				data.append(temp)
+			return data
 
 def getLength(data):
 	high = 0 

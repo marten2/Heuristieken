@@ -2,7 +2,7 @@ import sys
 import random 
 
 def randomConnections(nodes, minConnection, maxConnection):
-	'''Outputs a csv file with random connections between nodes 0 to 100'''
+	'''Outputs a csv file with random connections between nodes 0 to n'''
 	
 	# total number of connections is random as well
 	if maxConnection:
@@ -25,6 +25,7 @@ def randomConnections(nodes, minConnection, maxConnection):
 
 		# write to file
 		output.write(str(number1) + "," + str(number2) + "\n")
+	
 	# close file
 	output.close()
 	return totalConnections
