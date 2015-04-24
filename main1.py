@@ -5,6 +5,7 @@ import socialload
 import graph
 import randomconnections
 import figuresearch
+import random
 
 def main():
 	'''Calls different functions for the lowestcolor algorithm'''
@@ -15,8 +16,8 @@ def main():
  	# load social data
  	data = socialload.loadData('network1.txt')
 
- 	# totalConnections = randomconnections.randomConnections(1000, 6000, 6000)
 
+  	totalConnections = randomconnections.randomConnections(100, 1000, 1000)
  	# load random social data
  	# data = socialload.loadData('connections.txt')
 
@@ -46,7 +47,7 @@ def main():
 	# print "Colors:"
  # 	print countryColorList
 	print "Number of colors used:" + str(colors)	 
- # 	print output
+  	print output
 
  	figurelist = figuresearch.buildFigures(data)
 	biggest = figuresearch.findBiggestClique(figurelist)
