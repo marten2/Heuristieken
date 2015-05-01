@@ -16,7 +16,10 @@ def main():
  	# load social data
  	#data = socialload.loadData('socialconnections.txt')
 
-  	totalConnections = randomconnections.randomConnections(100, 1000, 1000)
+ 	n = random.randint(10, 100)
+ 	print n
+
+ 	totalConnections = randomconnections.randomConnections(n, 1000, 1000)
 
  	# load random social data
  	data = socialload.loadData('connections.txt')
