@@ -16,8 +16,10 @@ def buildFigures(edgeData):
 			# build a clique list
 			temp2 = recursivebuild(e, edgeData, checklist, temp2)
 			
-			# add clique for an element to output
-			temp[1].append(temp2)
+			temp2 = sorted(temp2)
+			if temp2 not in temp[1]: 
+				# add clique for an element to output
+				temp[1].append(temp2)
 		
 		output.append(temp)	
 	return output
@@ -59,3 +61,4 @@ def findBiggestClique(figurelist):
 
 if __name__ == "__main__":
 	data =  buildFigures([[0,[1,2,3]],[1,[0,2,4]],[2,[0,1,4]],[3,[0,4]],[4,[1,2,3]]])
+	print data

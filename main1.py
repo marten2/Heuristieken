@@ -11,10 +11,11 @@ def main():
 	'''Calls different functions for the lowestcolor algorithm'''
 
  	# load map data
- 	#data = loadin.loadData("IndiaData.csv")
+
+ 	data = loadin.loadData("IndiaData.csv")
 
  	# load social data
- 	data = socialload.loadData('network1.txt')
+ 	#data = socialload.loadData('network1.txt')
 
 
   	totalConnections = randomconnections.randomConnections(100, 1000, 1000)
@@ -45,7 +46,7 @@ def main():
 
 	# print results 	
 	# print "Colors:"
- # 	print countryColorList
+ 	# print countryColorList
 	print "Number of colors used:" + str(colors)	 
   	print output
 
