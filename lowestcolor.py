@@ -8,19 +8,6 @@ def getLongest(edgeData):
 			output = element[0]
 	return output
 
-def sortOnDegree(edgeData):
-	''' Sorts nodes on number of connections ''' 
-	for i in range (1, len(edgeData)):
-		j = i 
-		while j > 0 and len(edgeData[j - 1][1]) < len(edgeData[i][1]):
-			print i 
-			temp = edgeData[j]
-			edgeData[j] = edgeData[j - 1]
-			edgeData[j - 1] = temp
-			j = j - 1
-
-	return edgeData
-
 def determineColor(edgeData, country, countryColorList):
 	''' Returns appropriate color for country, aims for the lowest position possible in color list '''
 	temp = edgeData[country]
