@@ -11,9 +11,9 @@ import figuresearch
 
 def main():
 
-	n = random.randint(10, 100)
+	#n = random.randint(10, 100)
 
- 	totalConnections = randomconnections.randomConnections(n, 1000, 1000)
+ 	totalConnections = randomconnections.randomConnections(1000, 10000, 10000)
 
 	# load data
 	data = socialload.loadData('connections.txt')
@@ -28,6 +28,9 @@ def main():
 
 	# sort nodes on number of edges 
 	sortedData = degreecolor.sortOnEdges(sortedData)
+
+	maximum = len(sortedData[1][1])
+	print maximum
 
 	# color all countries 
 	for element in sortedData:
@@ -49,11 +52,11 @@ def main():
 	#graph.makeGraph(countryColorList, data)
 
 	# find biggest cluster
-	figurelist = figuresearch.buildFigures(data)
-	biggest = figuresearch.findBiggestClique(figurelist)
-	print biggest
+	#figurelist = figuresearch.buildFigures(data)
+	#biggest = figuresearch.findBiggestClique(figurelist)
+	#print biggest
 
- 	return [biggest, colors]
+ 	return [maximum, colors]
 
 if __name__ == "__main__":
 	main()

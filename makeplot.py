@@ -5,10 +5,12 @@ import numpy as np
 def makePlot(filename):
 	
 	data = np.genfromtxt(filename, delimiter=",", names=['x', 'y'])
+	#data2 = np.genfromtxt('tot_con_vs_col_10000_cycles_1000_nodes_1000_10000_con.csv', delimiter=",", names=['a', 'b'])
 
-	plt.scatter(data['x'], data['y'])
+	#plt.scatter(data2['a'], data2['b'], c='r', alpha=0.3)
+	plt.scatter(data['x'], data['y'], c='b', alpha=0.1)
 	plt.xlabel("Biggest clique")
 	plt.ylabel("Total amount of colors used")
 	plt.show()
 
-makePlot('clique_vs_colors_sorted_10_tot_100_nodes_1000_keer.csv')
+makePlot('experimentaldatasorted.csv')
