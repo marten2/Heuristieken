@@ -12,13 +12,12 @@ def main():
 
  	# load map data
 
- 	data = loadin.loadData("IndiaData.csv")
+ 	# data = loadin.loadData("USAData.csv")
 
  	# load social data
- 	#data = socialload.loadData('network1.txt')
+ 	data = socialload.loadData('network1.txt')
 
-
-  	totalConnections = randomconnections.randomConnections(100, 1000, 1000)
+  	# totalConnections = randomconnections.randomConnections(100, 1000, 1000)
  	# load random social data
  	# data = socialload.loadData('connections.txt')
 

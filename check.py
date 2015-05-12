@@ -3,7 +3,8 @@ def Checklist(CCL, edgeData):
 	for a in edgeData:
 		for b in edgeData[a[0]][1]:
 			if CCL[b] == CCL[a[0]]:
-				output.append([b, a[0]])
+				if output.count(sorted([b, a[0]])) == 0:
+					output.append(sorted([b, a[0]]))
 
 	if output:
 		return output
