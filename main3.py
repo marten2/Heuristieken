@@ -13,13 +13,13 @@ def main():
 
 	#n = random.randint(10, 100)
 
- 	totalConnections = randomconnections.randomConnections(1000, 10000, 10000)
+ 	#totalConnections = randomconnections.randomConnections(1000, 10000, 10000)
 
 	# load data
-	data = socialload.loadData('connections.txt')
+	#data = socialload.loadData('connections.txt')
 
 	# load map data
- 	# data = loadin.loadData("IndiaData.csv")
+ 	data = loadin.loadData("USAdata.csv")
 
  	sortedData = copy.deepcopy(data)
 
@@ -49,14 +49,14 @@ def main():
 	print colors
 
 	# make graph of data
-	#graph.makeGraph(countryColorList, data)
+	graph.makeGraph(countryColorList, data)
 
 	# find biggest cluster
 	#figurelist = figuresearch.buildFigures(data)
 	#biggest = figuresearch.findBiggestClique(figurelist)
 	#print biggest
 
- 	return [maximum, colors]
+ 	#return [maximum, colors]
 
 if __name__ == "__main__":
 	main()
