@@ -3,6 +3,7 @@ import main3
 import csv
 
 # make sure the make graph and prints in main1 are turned off before you run this
+
 def run(n):
 	''' Runs the lowestcolor algorithm 1000 times and saves the output in a csv file '''
 
