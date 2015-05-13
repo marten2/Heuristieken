@@ -1,6 +1,6 @@
 def Checklist(CCL, edgeData):
 	'''Checks if there are any collisions in colors''' 
-		output = []
+	output = []
 
 	# loop through all nodes and their edges
 	for a in edgeData:
