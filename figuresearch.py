@@ -4,15 +4,16 @@ import graph
 import random
 import copy
 
-# program that gets all connections figures, for maps these are tuples, triangles, sqaures
 def buildFigures(edgeData):
+	'''Gets all connection figures of the graph'''
+	
 	# ready an output
 	output = []
+	
 	for element in edgeData:
-		
 		# ready cliques per element
 		for e in element[1]:
-			# built a checklist to check if an element is connected to all elements
+			# build a checklist to check if an element is connected to all elements
 			checklist= [element[1], edgeData[e][1]]
 			
 			# ready clique list

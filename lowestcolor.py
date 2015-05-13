@@ -32,7 +32,7 @@ def determineColor(edgeData, country, countryColorList):
 	return countryColorList
 
 def shellSelect(shell, edgeData, countryColorList):
-	''' Selects borders of former shell ''' 
+	''' Returns borders of former shell ''' 
 	totalConnections = []
 
 	# sellect all possible connection for next shell
