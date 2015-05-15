@@ -15,11 +15,11 @@ def main():
  	# data = loadin.loadData("USAData.csv")
 
  	# load social data
- 	data = socialload.loadData('network1.txt')
+ 	# data = socialload.loadData('network1.txt')
 
-  	# totalConnections = randomconnections.randomConnections(100, 1000, 1000)
+  	totalConnections, tuplesList = randomconnections.randomConnections(100, 1000, 1000)
  	# load random social data
- 	# data = socialload.loadData('connections.txt')
+ 	data = socialload.loadData(tuplesList)
 
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 

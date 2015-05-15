@@ -82,7 +82,6 @@ def cliqueColoring(data, CCL):
 def hillClimber(CCL, data, max_col, max_error):
 	i = 0
 	size = len(CCL)
-	print max_error
 	while(i < 10000):
 		temp = copy.deepcopy(CCL)
 		temp[random.randint(0, size - 1)] = random.randint(0, max_col)
@@ -93,13 +92,26 @@ def hillClimber(CCL, data, max_col, max_error):
 		i += 1
 	return CCL
 
-
-
+def clashColoring(CCL, data, max_col, edgeData):
+	changed = []
+	for d in data:
+		if d[0] not in changed:
+			CCL[d[0]] = max_col + 1
+			for a in edgeData[d[0]][1]:
+				if a not in changed:
+					changed.append(a)
+		elif d[1] not in changed:
+			CCL[d[1]] = max_col + 1
+			for a in edgeData[d[1]][1]:
+				if a not in changed:
+					changed.append(a)
+		return CCL
 
 
 if __name__ == "__main__":
 	# data =  buildFigures([[0,[1,2,3]],[1,[0,2,4]],[2,[0,1,4]],[3,[0,4]],[4,[1,2,3]]])
 	data = socialload.loadData('network1.txt')
+	print data[0][1]
 	CCL = [None] * len(data)
 	data2 = buildFigures(data)
 	data2 = sorted(data2, key=len, reverse=True)
@@ -108,6 +120,8 @@ if __name__ == "__main__":
 		if CCL[i] == None:
 			CCL[i] = 0
 	CCL = hillClimber(CCL, data, 2, len(check.Checklist(CCL, data)))
-	print len(check.Checklist(CCL, data))
+	print check.Checklist(CCL, data)
+	CCL = clashColoring(CCL, check.Checklist(CCL, data), 2, data)
+	print check.Checklist(CCL, data)
 	# graph.makeGraph(CCL, data)
 

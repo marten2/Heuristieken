@@ -11,7 +11,7 @@ def randomConnections(nodes, minConnection, maxConnection):
 		totalConnections = minConnection
 
 	connectionList = []
-	output = open('connections.txt', 'w')
+	output = []
 
 	for i in range(0, totalConnections):
 		
@@ -24,9 +24,7 @@ def randomConnections(nodes, minConnection, maxConnection):
 			number2 = (number1 + random.randint(1, nodes - 1)) % nodes 
 
 		# write to file
-		output.write(str(number1) + "," + str(number2) + "\n")
+		output.append([number1, number2])
 	
-	# close file
-	output.close()
-	return totalConnections
+	return totalConnections, output
 
