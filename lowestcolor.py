@@ -1,3 +1,5 @@
+import clockwiseShellSelectNew
+
 def getLongest(edgeData):
 	''' Returns country with most connections '''
 	longest = 0
@@ -53,8 +55,10 @@ def lowestColor(data, start, countryColorList):
 	while(True):
 
 		# determine countries to be colored
-		shell = shellSelect(shell, data, countryColorList)
+		#shell = shellSelect(shell, data, countryColorList)
 		
+		shell = clockwiseShellSelectNew.clockwiseShellSelect(shell, data, countryColorList)
+
 		# exit if done
 		if len(shell) == 0:
 			# that's all folks
