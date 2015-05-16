@@ -1,10 +1,13 @@
 import csv
 
 def loadData(filename):
+	'''Loads map data'''
+
 	output = []
 	with open(filename, "r") as fin:
 		data = fin.readlines()[1:]
 		for i, d in enumerate(data):
+			# data separation on semicolon
 			land = d.split(";")[1:]
 			temp = []
 			for j, a  in enumerate(land):

@@ -33,5 +33,6 @@ def getLength(data):
 			if a > high:
 				high = a
 	return high
+	
 if __name__ == "__main__":
 	loadData("network1.txt")

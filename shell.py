@@ -51,7 +51,7 @@ def ShellColoring(shell, colorSet, countryColorList, edgeData, formercolor):
 
 # complete algorith to be ran in main
 def ShellMain(start, edgeData, countryColorList, colorSets):
-	# first shell is ellement with most connections
+	# first shell is element with most connections
 	shell = [start]
 	
 	# initialise some values
@@ -79,7 +79,5 @@ def ShellMain(start, edgeData, countryColorList, colorSets):
 		# color the country
 		countryColorList = ShellColoring(shell, colorSets[a], countryColorList, edgeData, "niks")
 
-
-
-	# Thats all folks!! 
+	# Thats all folks! 
 	return countryColorList

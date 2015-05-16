@@ -11,6 +11,7 @@ def main():
 	'''Calls different functions for the lowestcolor algorithm'''
 
  	# load map data
+<<<<<<< HEAD
  	data = loadin.loadData("USAdata.csv")
 
  	# load social data
@@ -21,10 +22,17 @@ def main():
  	print n
 
  	totalConnections = randomconnections.randomConnections(n, 1000, 1000)
+=======
 
-  	totalConnections = randomconnections.randomConnections(100, 1000, 1000)
+ 	# data = loadin.loadData("USAData.csv")
+
+ 	# load social data
+ 	# data = socialload.loadData('network1.txt')
+>>>>>>> origin/master
+
+  	totalConnections, tuplesList = randomconnections.randomConnections(100, 1000, 1000)
  	# load random social data
- 	# data = socialload.loadData('connections.txt')
+ 	data = socialload.loadData(tuplesList)
 
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 
@@ -50,7 +58,7 @@ def main():
 
 	# print results 	
 	# print "Colors:"
- # 	print countryColorList
+ 	# print countryColorList
 	print "Number of colors used:" + str(colors)	 
   	print output
 
