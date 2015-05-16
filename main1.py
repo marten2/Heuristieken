@@ -1,8 +1,8 @@
 import loadin
 import lowestcolor
 import check 
-import socialload
-import graph
+#import socialload
+#import graph
 import randomconnections
 import figuresearch
 import random
@@ -11,18 +11,16 @@ def main():
 	'''Calls different functions for the lowestcolor algorithm'''
 
  	# load map data
- 	#data = loadin.loadData("IndiaData.csv")
+ 	data = loadin.loadData("USAdata.csv")
 
  	# load social data
- 	data = socialload.loadData('network1.txt')
+ 	#data = socialload.loadData('network1.txt')
 
-<<<<<<< HEAD
+
  	n = random.randint(10, 100)
  	print n
 
  	totalConnections = randomconnections.randomConnections(n, 1000, 1000)
-=======
->>>>>>> origin/master
 
   	totalConnections = randomconnections.randomConnections(100, 1000, 1000)
  	# load random social data
@@ -60,7 +58,7 @@ def main():
 	biggest = figuresearch.findBiggestClique(figurelist)
 	print biggest
 
- 	# graph.makeGraph(countryColorList, data)
+ 	#graph.makeGraph(countryColorList, data)
 
  	return [biggest, colors]
 
