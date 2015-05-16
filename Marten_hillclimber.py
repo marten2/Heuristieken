@@ -18,13 +18,45 @@ def hillClimber(CCL, data, max_col, max_error):
 		i += 1
 	return CCL
 
-if __name__ == "__main__":
-	data = socialload.loadData('network1.txt')
-	CCL = [0] * len(data)
+def chaneBuild(shell, data, edgeData, chane, chaned):
+	new_shell = []
+	for e in shell:
+		for a in edgeData[e][1]:
+			for d in data:
+				if a in d and a not in chaned:
+					new_shell.append(a)
+					chaned.append(a)
+	if len(new_shell) != 0:
+		chane.append(new_shell)
+		chane, chaned = chaneBuild(shell, data, edgeData, chane, chaned)
+	return chane, chaned
+
+def chaneColoring(CCL, data, max_col, edgeData):
+	'''Gives remaining clashes an extra color'''
+	chanes = []
+	chaned = []
+	for d in data:
+		if d[0] not in chaned:
+			chane = [[d[0]]]
+			chane, chaned = chaneBuild([d[0]], data, edgeData, chane, chaned)
+		
+		chanes.append(chane)
+	
+	for c in chanes:
+		for i, a in enumerate(c):
+			if i % 2 == 0:
+				for b in a:
+					CCL[b] = max_col + 1
+
+	return CCL
+
+def allgorithm(data, CCL) 
 	for i in range(1, 5):
 		CCL = hillClimber(CCL, data, i, len(check.Checklist(CCL, data)))
 		if  len(check.Checklist(CCL, data)) == 0:
 			break
+
+		chaneColoring(CCL, check.Checklist(CCL, data), i, data)
 		print i
 	print CCL
 	graph.makeGraph(CCL, data)
