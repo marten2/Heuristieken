@@ -12,8 +12,6 @@ def Checklist(CCL, edgeData):
 	# return errors if there are any
 	if output:
 		return output
-	else:
-		return "No errors found"
 
 def checkColors(CCL):
 	'''Counts the numbers of colors used'''

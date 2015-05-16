@@ -2,43 +2,30 @@ import random
 import check
 import figuresearch
 import socialload
+import copy
+import graph
 
-def randomColor(colorList, colorNumber):
-	'''Changes the color of a random node''' 
-
-	country = random.randint(0, len(colorList) - 1)
-	colorList[country] = random.randint(0, colorNumber)
-
-	return colorList
-
-def start(data, colorNumber):
-	'''Colors the graph randomly with the minimum amount of colors'''
-
-	# make color list 
-	colorList = [0] * len(data)
-	
-	# color nodes in list
-	for i in range (0, len(colorList) - 1):
-		colorList[i] = random.randint(0, colorNumber)
-
-	return colorList
-
-def iterate(iterationNumber, colorNumber, colorList, data):
+def hillclimber(iterationNumber, colorNumber, colorList, data):
 	'''Performs iteration on the color list'''
 
 	for i in range(0, iterationNumber):
-		# change a color
-		newColorList = randomColor(colorList, colorNumber)
+
+		# select random country 
+		country = random.randint(0, len(colorList) - 1)
+
+		# make candidate color list
+		newColorList = copy.deepcopy(colorList)
+
+		# color country randomly
+		newColorList[country] = random.randint(0, colorNumber)
 
 		# check if improved
 		verdict = evaluate(colorList, newColorList, data)
 
 		# accept change if improved
 		if verdict == True:
-			colorList = newColorList
-
-		if verdict == False:
-
+			colorList = copy.deepcopy(newColorList)
+		
 	return colorList
 
 def evaluate(colorList, newColorList, data):
@@ -46,9 +33,11 @@ def evaluate(colorList, newColorList, data):
 
 	# check errors for both new and old versions
 	output1 = check.Checklist(colorList, data)
-	output2 = check.Checklist(colorList, data)
+	output2 = check.Checklist(newColorList, data)
 
-	if len(output2) < len(output1):
+	if not output2 or not output1:
+		return True
+	elif len(output2) <= len(output1):
 		return True
 	else:
 		return False
@@ -62,22 +51,27 @@ def annealingMain(iterationNumber):
  	figurelist = figuresearch.buildFigures(data)
 	colorNumber = figuresearch.findBiggestClique(figurelist)
 
+	# prepare list
+	colorList = [0] * len(data)
+
 	# color graph randomly 
-	colorList = start(data, colorNumber)
+	#for i in range (0, len(colorList) - 1):
+		#colorList[i] = random.randint(0, colorNumber)
 
 	output = check.Checklist(colorList, data)
+
 
 	# keep iterating as long as there are still errors
 	while(True): 
 
 		# try to eliminate errors with iteration
-		colorList = iterate(iterationNumber, colorNumber, colorList, data)
+		colorList = hillclimber(iterationNumber, colorNumber, colorList, data)
 
 		# check if there are still errors
 		output = check.Checklist(colorList, data)
 
 		# stop if correct 
-		if output == "No errors found":
+		if not output:
 			break 
 
 		print colorNumber
@@ -85,7 +79,8 @@ def annealingMain(iterationNumber):
 		# if errors increase color number
 		colorNumber = colorNumber + 1
 
-	return colorList 
+	print colorNumber
+	graph.makeGraph(colorList, data)
 
 if __name__ == "__main__":
-	annealingMain(1000)
+	annealingMain(10000)
