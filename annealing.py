@@ -55,8 +55,8 @@ def annealingMain(iterationNumber):
 	colorList = [0] * len(data)
 
 	# color graph randomly 
-	#for i in range (0, len(colorList) - 1):
-		#colorList[i] = random.randint(0, colorNumber)
+	for i in range (0, len(colorList) - 1):
+		colorList[i] = random.randint(0, colorNumber)
 
 	output = check.Checklist(colorList, data)
 
@@ -71,7 +71,7 @@ def annealingMain(iterationNumber):
 		output = check.Checklist(colorList, data)
 
 		# stop if correct 
-		if not output:
+		if not len(output):
 			break 
 
 		print colorNumber
