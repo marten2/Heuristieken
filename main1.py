@@ -7,6 +7,7 @@ import randomconnections
 import figuresearch
 import random
 import Marten_hillclimber
+import annealing
 
 
 def main():
@@ -20,28 +21,30 @@ def main():
  	# load social data
  	# data = socialload.loadData('network1.txt')
 
-  	totalConnections, tuplesList = randomconnections.randomConnections(100, 1000, 1000)
+  	totalConnections, tuplesList = randomconnections.randomConnections(10, 10, 100)
+ 	
  	# load random social data
  	data = socialload.loadData(tuplesList)
 
  	# make empty array for storing colors
- 	countryColorList = [None] * len(data) 
+ 	#countryColorList = [None] * len(data) 
 
  	# determine the starting country
- 	start = lowestcolor.getLongest(data)
+ 	#start = lowestcolor.getLongest(data)
 
- 	maximum = len(data[start][1])
+ 	#maximum = len(data[start][1])
 
  	# print maximum of connections
  	# print "Maximum connections:" + str(maximum)
 
  	# color countries
-	countryColorList = Marten_hillclimber.allgorithm(data, countryColorList)
+	countryColorList = annealing.annealingMain(data, 10000)
 
-	for i, a in enumerate(countryColorList):
-		if a == None:
-			countryColorList = lowestcolor.lowestColor(data, i, countryColorList)
+	#for i, a in enumerate(countryColorList):
+	#	if a == None:
+	#		countryColorList = lowestcolor.lowestColor(data, i, countryColorList)
 	# check if correct
+	
 	output = check.Checklist(countryColorList, data)
 	
 	colors = check.checkColors(countryColorList)
@@ -54,7 +57,7 @@ def main():
 
  	figurelist = figuresearch.buildFigures(data)
 	biggest = figuresearch.findBiggestClique(figurelist)
-	print biggest
+	#print biggest
 
  	#graph.makeGraph(countryColorList, data)
 

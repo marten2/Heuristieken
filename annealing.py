@@ -3,15 +3,17 @@ import check
 import figuresearch
 import socialload
 import copy
+import loadin
 import graph
 
 def hillclimber(iterationNumber, colorNumber, colorList, data):
 	'''Performs iteration on the color list'''
+	size = len(colorList)
 
 	for i in range(0, iterationNumber):
 
 		# select random country 
-		country = random.randint(0, len(colorList) - 1)
+		country = random.randint(0, size - 1)
 
 		# make candidate color list
 		newColorList = copy.deepcopy(colorList)
@@ -35,21 +37,21 @@ def evaluate(colorList, newColorList, data):
 	output1 = check.Checklist(colorList, data)
 	output2 = check.Checklist(newColorList, data)
 
-	if not output2 or not output1:
-		return True
-	elif len(output2) <= len(output1):
+	if len(output2) <= len(output1):
 		return True
 	else:
 		return False
 
-def annealingMain(iterationNumber):
+def annealingMain(data, iterationNumber):
 	'''Calls different functions to perform annealing''' 
 
-	data = socialload.loadData('network1.txt')
-	
+	print "start"
+	#data = socialload.loadData('network1.txt')
+	#data = loadin.loadData("USAdata.csv")
+
 	# set clique number as initial color number
- 	figurelist = figuresearch.buildFigures(data)
-	colorNumber = figuresearch.findBiggestClique(figurelist)
+ 	#figurelist = figuresearch.buildFigures(data)
+	colorNumber = 2 #figuresearch.findBiggestClique(figurelist)
 
 	# prepare list
 	colorList = [0] * len(data)
@@ -62,7 +64,7 @@ def annealingMain(iterationNumber):
 
 
 	# keep iterating as long as there are still errors
-	while(True): 
+	while(len(output) != 0): 
 
 		# try to eliminate errors with iteration
 		colorList = hillclimber(iterationNumber, colorNumber, colorList, data)
@@ -70,17 +72,11 @@ def annealingMain(iterationNumber):
 		# check if there are still errors
 		output = check.Checklist(colorList, data)
 
-		# stop if correct 
-		if not len(output):
-			break 
-
-		print colorNumber
-
 		# if errors increase color number
 		colorNumber = colorNumber + 1
 
-	print colorNumber
-	graph.makeGraph(colorList, data)
+	return colorList 
+	#graph.makeGraph(colorList, data)
 
 if __name__ == "__main__":
 	annealingMain(10000)
