@@ -60,14 +60,21 @@ def findBiggestClique(figurelist):
 	return size
 
 def colorCLique(clique, CCL):
+	'''Colors a clique with lowest color algorithm'''
+	
+	# loops over all elements in a clique 
 	for e in clique:
+
+		# only non-colored elements
 		if CCL[e] == None:
-			
 			colors = []
+
+			# get colors in the clique
 			for a in clique: 
 				if CCL[a] != None:
 					colors.append(CCL[a])
 			
+			# color element with lowest color possible
 			for c in range(len(clique) + 1):
 				if c not in colors:
 					CCL[e] = c
@@ -75,15 +82,18 @@ def colorCLique(clique, CCL):
 	return CCL
 
 def cliqueColoring(data, CCL):
+	'''colors all cliques one by one'''
 	for d in data:
 		CCL = colorCLique(d, CCL)
-
 	return CCL
 
 def hillClimber(CCL, data, max_col, max_error):
+	'''HillClimber evaluating on length of errors,
+		returns after 10000 cycles'''
 	i = 0
 	size = len(CCL)
 	while(i < 10000):
+
 		temp = copy.deepcopy(CCL)
 		temp[random.randint(0, size - 1)] = random.randint(0, max_col)
 		new_len = len(check.Checklist(temp, data))
@@ -93,26 +103,40 @@ def hillClimber(CCL, data, max_col, max_error):
 		i += 1
 	return CCL
 
-def clashColoring(CCL, data, max_col, edgeData):
-	changed = []
-	for d in data:
-		if d[0] not in changed:
-			CCL[d[0]] = max_col + 1
-			for a in edgeData[d[0]][1]:
-				if a not in changed:
-					changed.append(a)
-		elif d[1] not in changed:
-			CCL[d[1]] = max_col + 1
-			for a in edgeData[d[1]][1]:
-				if a not in changed:
-					changed.append(a)
-		return CCL
+def chaneBuild(shell, data, edgeData, chane, chaned):
+	new_shell = []
+	for e in shell:
+		for a in edgeData[e][1]:
+			for d in data:
+				if a in d and a not in chaned:
+					new_shell.append(a)
+					chaned.append(a)
+	if len(new_shell) != 0:
+		chane.append(new_shell)
+		chane, chaned = chaneBuild(shell, data, edgeData, chane, chaned)
+	return chane, chaned
 
+def chaneColoring(CCL, data, max_col, edgeData):
+	'''Gives remaining clashes an extra color'''
+	chanes = []
+	chaned = []
+	for d in data:
+		if d[0] not in chaned:
+			chane = [[d[0]]]
+			chane, chaned = chaneBuild([d[0]], data, edgeData, chane, chaned)
+		
+		chanes.append(chane)
+	
+	for c in chanes:
+		for i, a in enumerate(c):
+			if i % 2 == 0:
+				for b in a:
+					CCL[b] = max_col + 1
+
+	return CCL
 
 if __name__ == "__main__":
-	# data =  buildFigures([[0,[1,2,3]],[1,[0,2,4]],[2,[0,1,4]],[3,[0,4]],[4,[1,2,3]]])
 	data = socialload.loadData('network1.txt')
-	print data[0][1]
 	CCL = [None] * len(data)
 	data2 = buildFigures(data)
 	data2 = sorted(data2, key=len, reverse=True)
@@ -121,8 +145,8 @@ if __name__ == "__main__":
 		if CCL[i] == None:
 			CCL[i] = 0
 	CCL = hillClimber(CCL, data, 2, len(check.Checklist(CCL, data)))
+	CCL = chaneColoring(CCL, check.Checklist(CCL, data), 2, data)
+	CCL = hillClimber(CCL, data, 3, len(check.Checklist(CCL, data)))
 	print check.Checklist(CCL, data)
-	CCL = clashColoring(CCL, check.Checklist(CCL, data), 2, data)
-	print check.Checklist(CCL, data)
-	# graph.makeGraph(CCL, data)
+	graph.makeGraph(CCL, data)
 

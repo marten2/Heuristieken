@@ -10,10 +10,8 @@ def Checklist(CCL, edgeData):
 					output.append(sorted([b, a[0]]))
 
 	# return errors if there are any
-	if output:
-		return output
-	else:
-		return "No errors found"
+
+	return output
 
 def checkColors(CCL):
 	'''Counts the numbers of colors used'''
