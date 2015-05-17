@@ -5,10 +5,13 @@ import socialload
 import copy
 import loadin
 import graph
+import math 
 
-def hillclimber(iterationNumber, colorNumber, colorList, data):
+ 
+def hillclimber(iterationNumber, colorNumber, colorList, data, temperature):
 	'''Performs iteration on the color list'''
 	size = len(colorList)
+	frac = 0.5
 
 	for i in range(0, iterationNumber):
 
@@ -21,8 +24,11 @@ def hillclimber(iterationNumber, colorNumber, colorList, data):
 		# color country randomly
 		newColorList[country] = random.randint(0, colorNumber)
 
+		# update temperature
+		temperature = temperature * frac
+
 		# check if improved
-		verdict = evaluate(colorList, newColorList, data)
+		verdict = evaluate(colorList, newColorList, data, temperature)
 
 		# accept change if improved
 		if verdict == True:
@@ -30,14 +36,23 @@ def hillclimber(iterationNumber, colorNumber, colorList, data):
 		
 	return colorList
 
-def evaluate(colorList, newColorList, data):
+def evaluate(colorList, newColorList, data, temperature):
 	'''Compares two color lists and determines which gives the least clashes'''
 
-	# check errors for both new and old versions
-	output1 = check.Checklist(colorList, data)
-	output2 = check.Checklist(newColorList, data)
+	boltzmann = 1.3806488 * 10^-23
 
-	if len(output2) <= len(output1):
+	# check errors for both new and old versions
+	beginEnergy = len(check.Checklist(colorList, data))
+	neighborEnergy = len(check.Checklist(newColorList, data))
+	
+	# calculate energy 
+	energy = math.exp(-(beginEnergy - neighborEnergy) / (temperature * boltzmann))
+	print energy
+
+	compare = random.randint(0, 1)
+
+	# decide if change is accepted
+	if compare < energy:
 		return True
 	else:
 		return False
@@ -45,8 +60,6 @@ def evaluate(colorList, newColorList, data):
 def annealingMain(data, iterationNumber):
 	'''Calls different functions to perform annealing''' 
 
-	print "start"
-	#data = socialload.loadData('network1.txt')
 	#data = loadin.loadData("USAdata.csv")
 
 	# set clique number as initial color number
@@ -55,6 +68,9 @@ def annealingMain(data, iterationNumber):
 
 	# prepare list
 	colorList = [0] * len(data)
+
+	# set temperature
+	temperature = 1000
 
 	# color graph randomly 
 	for i in range (0, len(colorList) - 1):
@@ -67,7 +83,7 @@ def annealingMain(data, iterationNumber):
 	while(len(output) != 0): 
 
 		# try to eliminate errors with iteration
-		colorList = hillclimber(iterationNumber, colorNumber, colorList, data)
+		colorList, temperature = hillclimber(iterationNumber, colorNumber, colorList, data, temperature)
 
 		# check if there are still errors
 		output = check.Checklist(colorList, data)
@@ -79,4 +95,5 @@ def annealingMain(data, iterationNumber):
 	#graph.makeGraph(colorList, data)
 
 if __name__ == "__main__":
-	annealingMain(10000)
+	data = socialload.loadData('network1.txt')
+	annealingMain(data, 10000)
