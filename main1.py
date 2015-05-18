@@ -15,7 +15,6 @@ def main():
 
  	# load map data
 
-
  	# data = loadin.loadData("USAData.csv")
 
  	# load social data

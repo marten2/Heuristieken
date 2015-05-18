@@ -39,22 +39,27 @@ def hillclimber(iterationNumber, colorNumber, colorList, data, temperature):
 def evaluate(colorList, newColorList, data, temperature):
 	'''Compares two color lists and determines which gives the least clashes'''
 
-	boltzmann = 1.3806488 * 10^-23
+	#boltzmann = 1.3806488 * 10^-23
 
 	# check errors for both new and old versions
 	beginEnergy = len(check.Checklist(colorList, data))
 	neighborEnergy = len(check.Checklist(newColorList, data))
 	
 	# calculate energy 
-	energy = math.exp(-(beginEnergy - neighborEnergy) / (temperature * boltzmann))
-	print energy
+	#energy = math.exp(-(beginEnergy - neighborEnergy) / (temperature * boltzmann))
+	#print energy
 
-	compare = random.randint(0, 1)
+	#compare = random.randint(0, 1)
 
 	# decide if change is accepted
-	if compare < energy:
+	#if compare < energy:
+	#	return True
+	#else:
+	#	return False
+
+	if neighborEnergy <= beginEnergy:
 		return True
-	else:
+	else: 
 		return False
 
 def annealingMain(data, iterationNumber):
@@ -64,7 +69,9 @@ def annealingMain(data, iterationNumber):
 
 	# set clique number as initial color number
  	#figurelist = figuresearch.buildFigures(data)
-	colorNumber = 2 #figuresearch.findBiggestClique(figurelist)
+ 	#biggest = figuresearch.findBiggestClique(figurelist)
+
+	colorNumber = 2 
 
 	# prepare list
 	colorList = [0] * len(data)
@@ -83,7 +90,8 @@ def annealingMain(data, iterationNumber):
 	while(len(output) != 0): 
 
 		# try to eliminate errors with iteration
-		colorList, temperature = hillclimber(iterationNumber, colorNumber, colorList, data, temperature)
+		#colorList, temperature 
+		colorlist = hillclimber(iterationNumber, colorNumber, colorList, data, temperature)
 
 		# check if there are still errors
 		output = check.Checklist(colorList, data)
