@@ -56,8 +56,5 @@ def allgorithm(data, CCL):
 		CCL = hillClimber(CCL, data, i, len(check.Checklist(CCL, data)))
 		if  len(check.Checklist(CCL, data)) == 0:
 			break
-
 		chaneColoring(CCL, check.Checklist(CCL, data), i, data)
-		print i
-	print CCL
-	graph.makeGraph(CCL, data)
+	return CCL

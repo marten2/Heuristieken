@@ -13,4 +13,6 @@ def makePlot(filename):
 	plt.ylabel("Total amount of colors used")
 	plt.show()
 
-makePlot('experimentaldatasorted.csv')
+if __name__ == "__main__":
+
+	makePlot('Marten_hillclimber_connectiviteit.csv')
