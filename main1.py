@@ -2,12 +2,12 @@ import loadin
 import lowestcolor
 import check 
 import socialload
-import graph
+#import graph
 import randomconnections
-import figuresearch
+#import figuresearch
 import random
-import Marten_hillclimber
-import annealing
+#import Marten_hillclimber
+#import annealing
 
 
 def main():
@@ -26,7 +26,7 @@ def main():
  	data = socialload.loadData(tuplesList)
 
  	# make empty array for storing colors
- 	#countryColorList = [None] * len(data) 
+ 	countryColorList = [None] * len(data) 
 
  	# determine the starting country
  	#start = lowestcolor.getLongest(data)
@@ -37,7 +37,7 @@ def main():
  	# print "Maximum connections:" + str(maximum)
 
  	# color countries
-	countryColorList = annealing.annealingMain(data, 10000)
+	#countryColorList = annealing.annealingMain(data, 10000)
 
 	#for i, a in enumerate(countryColorList):
 	#	if a == None:
