@@ -15,7 +15,6 @@ def clockwiseShellSelect(shell, edgeData, countryColorList):
 			
 			sameNeighboursLength = len(sameNeighbours)
 			
-			print sameNeighbours, sameNeighboursLength
 			# for first neighbour to choose direction
 			if i == 0 and sameNeighboursLength != 0:
 				if sameNeighbours[0] not in totalConnections:

@@ -1,6 +1,5 @@
 import hillclimber
 import loadin
-import lowestcolor
 
 def main():
 
