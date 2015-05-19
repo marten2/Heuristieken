@@ -48,8 +48,10 @@ def shellSelect(shell, edgeData, countryColorList):
 	# return the shell
 	return totalConnections
 
-def lowestColor(data, start, countryColorList):
+def lowestColor(data):
 	''' Calls functions to color the map '''
+	start = getLongest(data)
+	countryColorList = [None] * len(data)
 	shell = [start] 
 
 	while(True):

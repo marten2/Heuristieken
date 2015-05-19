@@ -17,9 +17,13 @@ def main():
 
 	# load data
 	#data = socialload.loadData('connections.txt')
+	totalConnections, tuplesList = randomconnections.randomConnections(10, 10, 100)
+ 	
+ 	# load random social data
+ 	data = socialload.loadData(tuplesList)
 
 	# load map data
- 	data = loadin.loadData("USAdata.csv")
+ 	# data = loadin.loadData("USAdata.csv")
 
  	sortedData = copy.deepcopy(data)
 
@@ -28,9 +32,9 @@ def main():
 
 	# sort nodes on number of edges 
 	sortedData = degreecolor.sortOnEdges(sortedData)
-
-	maximum = len(sortedData[1][1])
-	print maximum
+	
+	maximum = len(sortedData[0][1])
+	#print maximum
 
 	# color all countries 
 	for element in sortedData:
@@ -43,20 +47,23 @@ def main():
 	# check if correct
 	output = check.Checklist(countryColorList, data)
 	print output
+
+	figurelist = figuresearch.buildFigures(data)
+	biggest = figuresearch.findBiggestClique(figurelist)
 	
 	# count number of colors
 	colors = check.checkColors(countryColorList)
 	print colors
 
 	# make graph of data
-	graph.makeGraph(countryColorList, data)
+	#graph.makeGraph(countryColorList, data)
 
 	# find biggest cluster
 	#figurelist = figuresearch.buildFigures(data)
 	#biggest = figuresearch.findBiggestClique(figurelist)
 	#print biggest
 
- 	#return [maximum, colors]
+ 	return [maximum, colors]
 
 if __name__ == "__main__":
 	main()

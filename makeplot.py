@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-
+from pylab import *
 
 def makePlot(filename):
 	
@@ -9,8 +9,9 @@ def makePlot(filename):
 
 	#plt.scatter(data2['a'], data2['b'], c='r', alpha=0.3)
 	plt.scatter(data['x'], data['y'], c='b', alpha=0.1)
+	m,b = polyfit(data['x'], data['y'], 1)
 	plt.xlabel("Biggest clique")
 	plt.ylabel("Total amount of colors used")
 	plt.show()
 
-makePlot('jenny_hillclimber_clique.csv')
+makePlot('jenny_degree_connections.csv')

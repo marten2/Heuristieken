@@ -28,10 +28,7 @@ def main():
  	# make empty array for storing colors
  	#countryColorList = [None] * len(data) 
 
- 	# determine the starting country
- 	#start = lowestcolor.getLongest(data)
-
- 	#maximum = len(data[start][1])
+ 	#maximum = lowestcolor.getLongest(data)
 
  	# print maximum of connections
  	# print "Maximum connections:" + str(maximum)
@@ -54,13 +51,13 @@ def main():
 	print "Number of colors used:" + str(colors)	 
   	print output
 
- 	figurelist = figuresearch.buildFigures(data)
-	biggest = figuresearch.findBiggestClique(figurelist)
+ 	#figurelist = figuresearch.buildFigures(data)
+	#biggest = figuresearch.findBiggestClique(figurelist)
 	#print biggest
 
  	#graph.makeGraph(countryColorList, data)
 
- 	return [biggest, colors]
+ 	return [totalConnections, colors]
 
 
 if __name__ == "__main__":
