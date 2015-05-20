@@ -9,14 +9,12 @@ def makePlot(filename):
 
 	#plt.scatter(data2['a'], data2['b'], c='r', alpha=0.3)
 	m, b = np.polyfit(data['x'], data['y'], 1)
-	print m, b
 	x = np.array([0, 110])
-	print x
 	y = (m*x + b)
-	print y
 	plt.plot(x, y, "r-")
 	plt.scatter(data['x'], data['y'], c='b', alpha=0.1)
 	plt.axis([0, 110, 1, 10])
+
 	plt.xlabel("Biggest clique")
 	plt.ylabel("Total amount of colors used")
 	plt.show()

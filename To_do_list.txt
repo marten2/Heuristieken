@@ -2,18 +2,33 @@ To do list
 
 - Verslag
 	1. Line plots van datasets. (matplotlib) -> Marten
-	2. Tabel resultaten van reguliere case met alle algoritmes -> Jeroen
-	3. Inleiding herschrijven t.b.v. reguliere case -> Jeroen
+	2. Tabel resultaten van reguliere case met alle algoritmes -> Jeroen 
+	3. Inleiding herschrijven t.b.v. reguliere case -> Jeroen (vandaag)
 	4. Conclusie en discussie -> Jenny
 	5. Rest data (bijv. random gegeneerde data) in verslag ->
+	6. Verwerken van voor- en nadelen van gebruik per algoritme
 
 - Presentatie
 	1. Powerpoint 
 	2. Oefenen (vrijdagochtend?)
-	3.
+	3. Berekenen SPSS Correlatiecoeficient (jenny hillclimber clique, connectiviteit en max conections)
+	4. Afbeeldingen bij presentatie toevoegen:
+		4.1 Voorbeeld ingekleurde landkaart
+		4.2 Voorbeeld graaf (lieft met beschrijving van knoop en zijde)
+		4.3 Voorbeeld clique, max graad en connectiviteit is
+		4.4 Lowestcolor maximum connections vizualisatie (voorbeeld van kleuring op basis van cijferwaarde)
+		4.5 Annealing (flowchart met plaats/fases)
+		4.6 Hybrid
+		4.7 Resultaten (matplot lib, )
+	5. Conlusie
+	6. Vervolgonderzoek - gestructureerde graaf, onderlingen correlatie verbanden, 
 
 - Algoritmes
-	1. Clockwise..  degree (opnieuw: zonder variatie connectivity), test connectivity, test clique (let op figure search aanpassen)
+	1. Clockwise..  degree (opnieuw: zonder variatie connectivity), test connectivity, test clique (let op figure search aanpassen)(vandaag)
 	2. Alle algoritmes.. degree (opnieuw: zonder variatie connectivity)
 	3. Annealing afmaken 
 	4. Random restart Hill afmaken
+
+- Vragen Daan
+	1. Geen tot weinig statistiek toegepast in onderzoek. (probleem voor onderzoekers?) Reden buiten de scoop van vak ->
+	2. 
