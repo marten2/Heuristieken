@@ -2,10 +2,11 @@ To do list
 
 - Verslag
 	1. Line plots van datasets. (matplotlib) -> Marten
-	2. Tabel resultaten van reguliere case met alle algoritmes -> Jeroen
-	3. Inleiding herschrijven t.b.v. reguliere case -> Jeroen
+	2. Tabel resultaten van reguliere case met alle algoritmes -> Jeroen 
+	3. Inleiding herschrijven t.b.v. reguliere case -> Jeroen (vandaag)
 	4. Conclusie en discussie -> Jenny
 	5. Rest data (bijv. random gegeneerde data) in verslag ->
+	6. Verwerken van voor- en nadelen van gebruik per algoritme
 
 - Presentatie
 	1. Powerpoint 
@@ -20,9 +21,10 @@ To do list
 		4.6 Hybrid
 		4.7 Resultaten (matplot lib, )
 	5. Conlusie
+	6. Vervolgonderzoek - gestructureerde graaf, onderlingen correlatie verbanden, 
 
 - Algoritmes
-	1. Clockwise..  degree (opnieuw: zonder variatie connectivity), test connectivity, test clique (let op figure search aanpassen)
+	1. Clockwise..  degree (opnieuw: zonder variatie connectivity), test connectivity, test clique (let op figure search aanpassen)(vandaag)
 	2. Alle algoritmes.. degree (opnieuw: zonder variatie connectivity)
 	3. Annealing afmaken 
 	4. Random restart Hill afmaken
