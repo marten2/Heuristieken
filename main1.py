@@ -4,8 +4,9 @@ import check
 import socialload
 # import graph
 import randomconnections
-# import figuresearch
+import figuresearch
 import random
+import annealing
 
 def main():
 	'''Calls different functions for the lowestcolor algorithm'''
@@ -22,20 +23,20 @@ def main():
 
  	# totalConnections = randomconnections.randomConnections(n, 1000, 1000)
 
-
   	totalConnections, tuplesList = randomconnections.randomConnections(10, 10, 100)
  	# load random social data
  	data = socialload.loadData(tuplesList)
 
  	# make empty array for storing colors
- 	countryColorList = [None] * len(data) 
+ 	#countryColorList = [None] * len(data) 
 
  	#maximum = lowestcolor.getLongest(data)
  	# print maximum of connections
  	# print "Maximum connections:" + str(maximum)
 
- 	# # color countries
-	countryColorList = lowestcolor.lowestColor(data, start, countryColorList)
+ 	countryColorList = annealing.annealingMain(data, 10000)
+ 	# color countries
+	# countryColorList = annealing.annealingMain(data, 10000)
 
 	for i, a in enumerate(countryColorList):
 		if a == None:
@@ -44,11 +45,13 @@ def main():
 	# output = check.Checklist(countryColorList, data)
 	
 	colors = check.checkColors(countryColorList)
-
+	# print colors
 	# print results 	
 	# print "Colors:"
  	# print countryColorList
 	# print "Number of colors used:" + str(colors)	 
+ 	figurelist = figuresearch.buildFigures(data)
+	biggest = figuresearch.findBiggestClique(figurelist)
   	# print output
 
  	#figurelist = figuresearch.buildFigures(data)
@@ -57,15 +60,11 @@ def main():
 
  	#graph.makeGraph(countryColorList, data)
 
- 	return [totalConnections, colors]
+ 	return [biggest, colors]
 	# figurelist = figuresearch.buildFigures(data)
 	# biggest = figuresearch.findBiggestClique(figurelist)
 	# print biggest
-
  	#graph.makeGraph(countryColorList, data)
-
- 	return [maximum, colors]
-
 
 if __name__ == "__main__":
 	main()

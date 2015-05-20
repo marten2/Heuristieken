@@ -22,13 +22,19 @@ def hillclimber(iterationNumber, colorNumber, colorList, data):
 		# make candidate color list
 		newColorList = copy.deepcopy(colorList)
 
-		# color country randomly
-		newColorList[country] = random.randint(0, colorNumber)
+		# determine color
+		color = random.randint(0, colorNumber)
+
+		# make sure a different color is chosen
+		while color == colorList[country]:
+			color = random.randint(0, colorNumber)
+
+		# color country 
+		newColorList[country] = color
 
 		# update temperature while bigger than 1
 		if temperature > minTemp:
 			temperature = temperature * frac
-			print temperature
 
 		# check if improved
 		verdict = evaluate(colorList, newColorList, data, temperature)

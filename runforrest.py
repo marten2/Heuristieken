@@ -8,7 +8,8 @@ def run(n):
 	''' Runs the lowestcolor algorithm 1000 times and saves the output in a csv file '''
 
 	# open file to write experimental data to
-	c = csv.writer(open("jenny_annealing_connections.csv", "w"))
+
+	c = csv.writer(open("jenny_annealing_clique.csv", "w"))
 
 	# run main n times
 	for i in range(0, n):
@@ -17,4 +18,5 @@ def run(n):
 		output[0] = str(output[0])
 		output[1] = str(output[1])
 		c.writerow(output)
-run(1000)
+if __name__ == "__main__": 
+	run(1000)
