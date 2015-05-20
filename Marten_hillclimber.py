@@ -50,7 +50,7 @@ def chaneColoring(CCL, data, max_col, edgeData):
 
 	return CCL
 
-def allgorithm(data, CCL):
+def algorithm(data, CCL):
 	CCL = [0] * len(CCL) 
 	for i in range(1, 100):
 		CCL = hillClimber(CCL, data, i, len(check.Checklist(CCL, data)))
