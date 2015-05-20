@@ -17,7 +17,6 @@ def main():
  	# load social data
  	#data = socialload.loadData('network1.txt')
 
-
  	# n = random.randint(10, 100)
  	# print n
 
