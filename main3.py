@@ -17,7 +17,7 @@ def main():
 
 	# load data
 	#data = socialload.loadData('connections.txt')
-	totalConnections, tuplesList = randomconnections.randomConnections(10, 10, 100)
+	totalConnections, tuplesList = randomconnections.randomConnections(10, 100, 100)
  	
  	# load random social data
  	data = socialload.loadData(tuplesList)
@@ -48,8 +48,8 @@ def main():
 	output = check.Checklist(countryColorList, data)
 	print output
 
-	figurelist = figuresearch.buildFigures(data)
-	biggest = figuresearch.findBiggestClique(figurelist)
+	#figurelist = figuresearch.buildFigures(data)
+	#biggest = figuresearch.findBiggestClique(figurelist)
 	
 	# count number of colors
 	colors = check.checkColors(countryColorList)

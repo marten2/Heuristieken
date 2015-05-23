@@ -7,6 +7,7 @@ import randomconnections
 import figuresearch
 import random
 import annealing
+import degreecolor
 
 def main():
 	'''Calls different functions for the lowestcolor algorithm'''
@@ -27,13 +28,16 @@ def main():
  	data = socialload.loadData(tuplesList)
 
  	# make empty array for storing colors
- 	#countryColorList = [None] * len(data) 
+ 	countryColorList = [None] * len(data) 
 
  	maximum = lowestcolor.getLongest(data)
  	# print maximum of connections
  	# print "Maximum connections:" + str(maximum)
 
- 	countryColorList = annealing.annealingMain(data, 10000)
+ 	sortedData = degreecolor.sortOnEdges(data)
+
+ 	for element in sortedData:
+ 		countryColorList = lowestcolor.determineColor(data, element, countryColorList)
  	# color countries
 	# countryColorList = annealing.annealingMain(data, 10000)
 

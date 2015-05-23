@@ -9,12 +9,12 @@ def run(n):
 
 	# open file to write experimental data to
 
-	c = csv.writer(open("jenny_annealing_degree.csv", "w"))
+	c = csv.writer(open("jenny_degree_degree.csv", "w"))
 
 	# run main n times
 	for i in range(0, n):
 		print i
-		output = main1.main()
+		output = main3.main()
 		output[0] = str(output[0])
 		output[1] = str(output[1])
 		c.writerow(output)
