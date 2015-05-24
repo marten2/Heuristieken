@@ -15,10 +15,10 @@ def makePlot(filename):
 	plt.scatter(data['x'], data['y'], c='b', alpha=0.1)
 	#plt.axis([0, 10, 0, 10])
 
-	plt.xlabel("Maximum degree")
+	plt.xlabel("Total amount of connetions")
 	plt.ylabel("Total amount of colors used")
 	plt.show()
 
 if __name__ == "__main__":
 
-	makePlot('Marten_Hybrid_degree.csv')
+	makePlot('marten_hillclimber_connectiviteit.csv')
