@@ -7,8 +7,10 @@ In een graaf representeren de Knopen de elementen, en de zijdes de grenzen. Als 
 
 
 Slide Constructief:
-2 heuristieken: laagste kleur en knoop met de meeste buren.
-Let op: zoekt naar de laatgste in de kleurenarray die niet gebruikt wordt door aangrezende knopen.
+Ten behoeve van ons onderzoek zijn er 3 constructieve algoritmes gemaakt. Deze zijn allemaal gebaseerd op de heurstiek Lowest color.
+De heurstiek Lowest color baseert zich op het principe van een kleurgetal. Wanneer een knoop geselecteerd is om ingekleurd te worden, wordt gekeken naar de kleurgetallen van aangrenzende knopen. Vervolgens zal de geselecteerde knoop in worden gekleurd op basis van het laagste mogelijke kleurgetal.
+
+Onze best werkende constructieve algoritme is gebaseerd op de heurstiek Max connections. Hierbij wordt de order van kleuring van de knopen bepaalt door de knoop met de meeste connecties, aflopend naar de knoop met de minste.
 
 
 Slide Vervolgonderzoek:
