@@ -58,17 +58,22 @@ def evaluate(colorList, newColorList, data, temperature):
 	if beginEnergy == 0:
 		return 2
 	
-	# calculate chance 
-	chance = math.exp(-(neighborEnergy - beginEnergy) / temperature)
-
-	# generate number to compare with
-	compare = random.uniform(0.0, 1.0)
-
-	# decide if change is accepted
-	if compare <= chance:
+	if neighborEnergy <= beginEnergy:
 		return 1
 	else:
 		return 0
+
+	# calculate chance 
+	#chance = math.exp(-(neighborEnergy - beginEnergy) / temperature)
+
+	# generate number to compare with
+	#compare = random.uniform(0.0, 1.0)
+
+	# decide if change is accepted
+	#if compare <= chance:
+	#	return 1
+	#else:
+	#	return 0
 
 def annealingMain(data, iterationNumber):
 	'''Calls different functions to perform annealing''' 

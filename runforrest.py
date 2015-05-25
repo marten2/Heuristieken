@@ -1,5 +1,5 @@
 import main1
-import main3
+#import main3
 import csv
 
 # make sure the make graph and prints in main1 are turned off before you run this
@@ -9,7 +9,11 @@ def run(n):
 
 	# open file to write experimental data to
 
+<<<<<<< HEAD
 	c = csv.writer(open("Marten_hybrid_degree.csv", "w"))
+=======
+	c = csv.writer(open("jeroen_clockwise_connections.csv", "w"))
+>>>>>>> aeac09c6091eb0b2bfc82519efff57be71e15a90
 
 	# run main n times
 	for i in range(0, n):

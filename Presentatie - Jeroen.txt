@@ -1,0 +1,15 @@
+Presentatie - Jeroen
+
+Slide case:
+De case die als basis heeft dient voor ons onderzoek, gaat over het inkleuren van grafen met de eis dat aan elkaar grenzende elementen niet dezelfde kleur mogen krijgen. Om aan de case te voldoen zijn 3 landkaarten (2d) en 1 netwerkkaart(multidimensionaal) ingekleurd.
+
+In een graaf representeren de Knopen de elementen, en de zijdes de grenzen. Als we het voorbeeld van een landkaart nemen (zoals hier weergeven dan), zijn de landen de knopen en de grenzen de zijdes. Het definitie kleurgetal staat voor de toegekende cijfermatige waarde van een kleur. Bijvoorbeeld in een array aan kleuren is de derde kleur in de array rood. Wanneer een knoop ingekleurd is met de rood is het kleurgetal van de desbetreffende knoop 3.
+
+
+Slide Constructief:
+2 heuristieken: laagste kleur en knoop met de meeste buren.
+Let op: zoekt naar de laatgste in de kleurenarray die niet gebruikt wordt door aangrezende knopen.
+
+
+Slide Vervolgonderzoek:
+
