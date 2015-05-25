@@ -59,8 +59,9 @@ def lowestColor(data):
 		# determine countries to be colored
 		#shell = shellSelect(shell, data, countryColorList)
 
-		
+		# Clockwise select
 		shell = clockwiseShellSelectNew.clockwiseShellSelect(shell, data, countryColorList)
+		
 
 		# exit if done
 		if len(shell) == 0:
