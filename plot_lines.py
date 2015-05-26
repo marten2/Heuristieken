@@ -18,9 +18,10 @@ def makePlot(filename):
 		y = (m*x + b)
 		plt.plot(x, y, colors[i] + "-")
 		patch[i] = pt.Patch(color = colors[i], label = name_graph)
-		
+	
+	plt.text(6.05, 7.6, "nodes:  10\nedges:  10-100\ngraphs: 1000", bbox={"pad":10, "facecolor": "white", "alpha":0.8})	
 	plt.legend(handles=patch, loc=4)
-	plt.axis([0, 10, 0, 11])
+	plt.axis([6, 8, 5, 8])
 	plt.xlabel("Biggest clique")
 	plt.ylabel("Total amount of colors used")
 	plt.show()
