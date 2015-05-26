@@ -9,11 +9,7 @@ def run(n):
 
 	# open file to write experimental data to
 
-<<<<<<< HEAD
-	c = csv.writer(open("Marten_hybrid_degree.csv", "w"))
-=======
-	c = csv.writer(open("jeroen_clockwise_connections.csv", "w"))
->>>>>>> aeac09c6091eb0b2bfc82519efff57be71e15a90
+	c = csv.writer(open("jenny_hillcimber_degree5.csv", "w"))
 
 	# run main n times
 	for i in range(0, n):
