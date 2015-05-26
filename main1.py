@@ -4,31 +4,29 @@ import check
 import socialload
 # import graph
 import randomconnections
-#import figuresearch
+import figuresearch
 import random
 import annealing
 import Marten_hillclimber
-<<<<<<< Updated upstream
-#import annealing
+import annealing
 import degreecolor
-=======
+
 
 #import annealing
 import degreecolor
 import time
 
 start_time = time.time()
->>>>>>> Stashed changes
 
 
 def main():
 	'''Calls different functions for the lowestcolor algorithm'''
 
  	# load map data
- 	# data = loadin.loadData("USAdata.csv")
+ 	data = loadin.loadData("IndiaData.csv")
 
  	# load social data
- 	data = socialload.loadData('network1.txt')
+ 	# data = socialload.loadData('network1.txt')
 
  	# ---------- Research part -----------
 
@@ -48,12 +46,10 @@ def main():
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 
 
-<<<<<<< Updated upstream
  	maximum = len(data[lowestcolor.getLongest(data)][1])
-=======
+
  	#maximum = len(data[lowestcolor.getLongest(data)][1])
- 
->>>>>>> Stashed changes
+
  	# print "Maximum connections:" + str(maximum)
 
  	# countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
@@ -63,24 +59,19 @@ def main():
 	# for i, a in enumerate(countryColorList):
 	# 	if a == None:
 	# 		countryColorList = lowestcolor.lowestColor(data, i, countryColorList)
-<<<<<<< Updated upstream
-=======
+
 
  	maximum = lowestcolor.getLongest(data)
  	# print maximum of connections
  	# print "Maximum connections:" + str(maximum)
 
  	# sortedData = degreecolor.sortOnEdges(data)
->>>>>>> Stashed changes
 
-
-<<<<<<< Updated upstream
-=======
 	# for i, a in enumerate(countryColorList):
 	# 	if a == None:
 	# 		countryColorList = lowestcolor.lowestColor(data)
 		#, i, countryColorList	
->>>>>>> Stashed changes
+
 	# check if correct
 	output = check.Checklist(countryColorList, data)
 	
@@ -88,24 +79,20 @@ def main():
 	# print colors
 	# print results 	
 	# print "Colors:"
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
  	# print countryColorList
 	# print "Number of colors used:" + str(colors)	 
  	# figurelist = figuresearch.buildFigures(data)
 	# biggest = figuresearch.findBiggestClique(figurelist)
-<<<<<<< Updated upstream
 
  	# print output
-=======
+
  	print countryColorList
 	print "Number of colors used:" + str(colors)	 
- 	#figurelist = figuresearch.buildFigures(data)
-	#biggest = figuresearch.findBiggestClique(figurelist)
-  	# print output
->>>>>>> Stashed changes
+ # 	figurelist = figuresearch.buildFigures(data)
+	# biggest = figuresearch.findBiggestClique(figurelist)
+ #  	print output
+
 
  	#figurelist = figuresearch.buildFigures(data)
 	#biggest = figuresearch.findBiggestClique(figurelist)
@@ -114,11 +101,9 @@ def main():
  	#graph.makeGraph(countryColorList, data)
 
  	return [maximum, colors]
-<<<<<<< Updated upstream
-=======
+
  	return [totalConnections, colors]
 
->>>>>>> Stashed changes
 	# figurelist = figuresearch.buildFigures(data)
 	# biggest = figuresearch.findBiggestClique(figurelist)
 	# print biggest
