@@ -4,6 +4,9 @@ import graph
 import random
 import copy
 import math
+import time
+
+start_time = time.time()
 
 def anealing(CCL, data, max_col, max_error):
 	i = 0
@@ -43,3 +46,4 @@ if __name__ == "__main__":
 	CCL = [None] * len(data)
 	CCL = algorithm(data, CCL) 
 	graph.makeGraph(countryColorList, data)
+	print("--- %s seconds ---" % (time.time() - start_time))

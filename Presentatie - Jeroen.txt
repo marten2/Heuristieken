@@ -5,16 +5,36 @@ De case die als basis dient voor ons onderzoek, gaat over het inkleuren van graf
 
 In een graaf representeren de Knopen de elementen, en de zijdes de grenzen. Als we het voorbeeld van een landkaart nemen (zoals hier weergeven dan), zijn de landen de knopen en de grenzen de zijdes. 
 
-Het definitie chromatisch getal (zoals jenny al zei) staat voor de toegekende cijfermatige waarde van een kleur. Bijvoorbeeld in een lijst aan kleuren is de derde kleur in de lijst rood. Wanneer een knoop ingekleurd is met de rood is het kleurgetal van de desbetreffende knoop 3.
+De definitie chromatisch getal (zoals jenny al zei) staat voor de toegekende cijfermatige waarde van een kleur. Bijvoorbeeld in een lijst aan kleuren is de derde kleur in de lijst rood. Wanneer een knoop ingekleurd is met de rood is het chromatisch van de desbetreffende knoop 3.
+---------------------------------------------------------------------------------------------------------------------------------
+STEEKWOORDEN:
 
+Case -> basis, inkleuren grafen, Eis 
 
+Graaf -> Knopen Elementen, Zijdes Grenzen. Voorbeeld Landkaart
+
+Definitie Chromatisch getal Jenny cijfermatige waarde kleur. Voorbeeld Lijst.
+
+---------------------------------------------------------------------------------------------------------------------------------
 Slide Constructief:
 Ten behoeve van ons onderzoek zijn er 3 constructieve algoritmes gemaakt. Deze zijn allemaal gebaseerd op de heurstiek Lowest color.
-De heurstiek Lowest color baseert zich op het principe van een kleurgetal. Wanneer een knoop geselecteerd is om ingekleurd te worden, wordt gekeken naar de kleurgetallen van aangrenzende knopen. Vervolgens zal de geselecteerde knoop in worden gekleurd op basis van het laagste mogelijke kleurgetal.
+De heurstiek Lowest color baseert zich op het principe van een chromatisch getal. Wanneer een knoop geselecteerd is om ingekleurd te worden, wordt gekeken naar de chromatisch getallen van aangrenzende knopen. Vervolgens zal de geselecteerde knoop in worden gekleurd op basis van het laagste mogelijke kleurgetal.
 
-Onze best werkende constructieve algoritme is gebaseerd op de heurstiek Max connections. Hierbij wordt de order van kleuring van de knopen bepaalt door de knoop met de meeste connecties, aflopend naar de knoop met de minste.
+Onze best werkende constructieve algoritme is gebaseerd op de heurstiek Max graad. Hierbij wordt de volgorde aan de hand van het aantal zijdes van een knoop. van kleuring van de knopen bepaalt door de knoop met de meeste connecties, aflopend naar de knoop met de minste.
+---------------------------------------------------------------------------------------------------------------------------------
+STEEKWOORDEN:
+
+Ten behoeve van onderzoek 2 algoritmes. Heuristiek Lowest Color, chromatisch getal, voorbeeld knoop kijken naar andere chromatische getallen.
 
 
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
 Slide Vervolgonderzoek:
 De resultaten van ons onderzoek zijn erg hoopgevend. Dit geeft een eventueel vervolgonderzoek de gelegenheid om naast ook een causaal verband aan te tonen. Hierbij is het belangrijk de verwantschap 
 
+
+
+---------------------------------------------------------------------------------------------------------------------------------
