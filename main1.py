@@ -2,13 +2,13 @@ import loadin
 import lowestcolor
 import check 
 import socialload
-# import graph
+import graph
 import randomconnections
-#import figuresearch
+import figuresearch
 import random
 import annealing
 import Marten_hillclimber
-#import annealing
+import annealing
 import degreecolor
 
 
@@ -19,7 +19,7 @@ def main():
  	# data = loadin.loadData("USAdata.csv")
 
  	# load social data
- 	#data = socialload.loadData('network1.txt')
+ 	# data = socialload.loadData('network1.txt')
 
  	# ---------- Research part -----------
 
@@ -30,7 +30,7 @@ def main():
  	# Determine amount of connections
  	# totalConnections = randomconnections.randomConnections(n, 1000, 10000)
 
-  	totalConnections, tuplesList = randomconnections.randomConnections(10, 100, 100)
+  	totalConnections, tuplesList = randomconnections.randomConnections(20, 0, 190)
  	# load random social data
  	data = socialload.loadData(tuplesList)
 
@@ -39,7 +39,7 @@ def main():
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 
 
- 	maximum = len(data[lowestcolor.getLongest(data)][1])
+ 	# maximum = len(data[lowestcolor.getLongest(data)][1])
  	# print "Maximum connections:" + str(maximum)
 
  	countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
@@ -52,7 +52,7 @@ def main():
 
 
 	# check if correct
-	output = check.Checklist(countryColorList, data)
+	# output = check.Checklist(countryColorList, data)
 	
 	colors = check.checkColors(countryColorList)
 	# print colors
@@ -66,17 +66,17 @@ def main():
 
  	# print output
 
- 	#figurelist = figuresearch.buildFigures(data)
-	#biggest = figuresearch.findBiggestClique(figurelist)
+ 	figurelist = figuresearch.buildFigures(data)
+	biggest = figuresearch.findBiggestClique(figurelist)
 	#print biggest
 
  	#graph.makeGraph(countryColorList, data)
 
- 	return [maximum, colors]
+ 	return [biggest, colors]
 	# figurelist = figuresearch.buildFigures(data)
 	# biggest = figuresearch.findBiggestClique(figurelist)
 	# print biggest
- 	#graph.makeGraph(countryColorList, data)
+ 	# graph.makeGraph(countryColorList, data)
 
 if __name__ == "__main__":
 	main()

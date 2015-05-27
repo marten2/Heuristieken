@@ -18,7 +18,6 @@ def randomConnections(nodes, minConnection, maxConnection):
 		# select two random nodes to connect
 		number1 = random.randint(0, nodes)
 		number2 = random.randint(0, nodes)
-
 		# avoid self connection
 		while(number1 == number2):
 				number2 = (number1 + random.randint(1, nodes - 1)) % nodes 
@@ -34,8 +33,8 @@ def randomConnections(nodes, minConnection, maxConnection):
 			while(number1 == number2):
 				number2 = (number1 + random.randint(1, nodes - 1)) % nodes 
 			
-			# write to file
-			output.append(sorted([number1, number2]))
+		# write to file
+		output.append(sorted([number1, number2]))
 	
 	return totalConnections, output
 

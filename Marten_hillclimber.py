@@ -56,5 +56,5 @@ def algorithm(data, CCL):
 		CCL = hillClimber(CCL, data, i, len(check.Checklist(CCL, data)))
 		if  len(check.Checklist(CCL, data)) == 0:
 			break
-		# chaneColoring(CCL, check.Checklist(CCL, data), i, data)
+		chaneColoring(CCL, check.Checklist(CCL, data), i, data)
 	return CCL
