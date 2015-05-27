@@ -10,13 +10,16 @@ import annealing
 import Marten_hillclimber
 import annealing
 import degreecolor
+import time
+
+start_time = time.time()
 
 
 def main():
 	'''Calls different functions for the lowestcolor algorithm'''
 
  	# load map data
- 	# data = loadin.loadData("USAdata.csv")
+ 	data = loadin.loadData("IndiaData.csv")
 
  	# load social data
  	# data = socialload.loadData('network1.txt')
@@ -32,24 +35,34 @@ def main():
 
   	totalConnections, tuplesList = randomconnections.randomConnections(20, 0, 190)
  	# load random social data
- 	data = socialload.loadData(tuplesList)
+ 	#data = socialload.loadData(tuplesList)
 
  	# ---------- End Research part -----------
 
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 
-
  	# maximum = len(data[lowestcolor.getLongest(data)][1])
  	# print "Maximum connections:" + str(maximum)
 
- 	countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
+ 	# countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
  	# color countries
-	# countryColorList = annealing.annealingMain(data, 10000)
+	countryColorList = annealing.annealingMain(data, 10000)
 
 	# for i, a in enumerate(countryColorList):
 	# 	if a == None:
 	# 		countryColorList = lowestcolor.lowestColor(data, i, countryColorList)
 
+
+ 	maximum = lowestcolor.getLongest(data)
+ 	# print maximum of connections
+ 	# print "Maximum connections:" + str(maximum)
+
+ 	# sortedData = degreecolor.sortOnEdges(data)
+
+	# for i, a in enumerate(countryColorList):
+	# 	if a == None:
+	# 		countryColorList = lowestcolor.lowestColor(data)
+		#, i, countryColorList	
 
 	# check if correct
 	# output = check.Checklist(countryColorList, data)
@@ -65,10 +78,8 @@ def main():
 	# biggest = figuresearch.findBiggestClique(figurelist)
 
  	# print output
-
  	figurelist = figuresearch.buildFigures(data)
 	biggest = figuresearch.findBiggestClique(figurelist)
-	#print biggest
 
  	#graph.makeGraph(countryColorList, data)
 
@@ -78,5 +89,7 @@ def main():
 	# print biggest
  	# graph.makeGraph(countryColorList, data)
 
+
 if __name__ == "__main__":
 	main()
+	print("--- %s seconds ---" % (time.time() - start_time))

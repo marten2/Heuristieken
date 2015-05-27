@@ -8,6 +8,9 @@ import copy
 import random
 import randomconnections
 import figuresearch
+import time
+
+start_time = time.time()
 
 def main():
 
@@ -16,14 +19,14 @@ def main():
  	#totalConnections = randomconnections.randomConnections(1000, 10000, 10000)
 
 	# load data
-	#data = socialload.loadData('connections.txt')
+	data = socialload.loadData('network1.txt')
 	totalConnections, tuplesList = randomconnections.randomConnections(10, 100, 100)
  	
  	# load random social data
- 	data = socialload.loadData(tuplesList)
+ 	# data = socialload.loadData(tuplesList)
 
 	# load map data
- 	# data = loadin.loadData("USAdata.csv")
+ 	# data = loadin.loadData("IndiaData.csv")
 
  	sortedData = copy.deepcopy(data)
 
@@ -42,7 +45,7 @@ def main():
 		countryColorList = lowestcolor.determineColor(data, countryNumber, countryColorList)
 
 	# print colors
-	# print countryColorList
+	print countryColorList
 
 	# check if correct
 	output = check.Checklist(countryColorList, data)
@@ -67,3 +70,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
+	print("--- %s seconds ---" % (time.time() - start_time))

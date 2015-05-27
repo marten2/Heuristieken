@@ -12,7 +12,6 @@ def clockwiseShellSelect(shell, edgeData, countryColorList):
 		for neighbour in edgeData[country][1]:
 			sets = [set(edgeData[country][1]), set(edgeData[neighbour][1])]
 			sameNeighbours = list(set.intersection(*sets))
-			
 			sameNeighboursLength = len(sameNeighbours)
 			
 			# for first neighbour to choose direction
@@ -20,16 +19,17 @@ def clockwiseShellSelect(shell, edgeData, countryColorList):
 				if sameNeighbours[0] not in totalConnections:
 					if not countryColorList[sameNeighbours[0]]:
 						totalConnections.append(sameNeighbours[0])
-			# 
+			# continue with clockwise coloring
 			elif i != 0:
 				for oneNeighbour in sameNeighbours:
 					if oneNeighbour not in totalConnections:
 						if not countryColorList[oneNeighbour]:
 							totalConnections.append(oneNeighbour)
 			# if i = 0 and sameNeighbours[0] is empty
-			else:
-				if not countryColorList[neighbour]:
-						totalConnections.append(neighbour)
+			# else:
+			# 	if not countryColorList[neighbour]:
+			# 			print i
+			# 			totalConnections.append(neighbour)
 			i += 1
 
 	# return the shell
