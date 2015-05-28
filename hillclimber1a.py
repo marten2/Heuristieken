@@ -4,14 +4,16 @@ import figuresearch
 import socialload
 import copy
 import loadin
+import graph
 import math 
  
 def hillclimber(iterationNumber, colorNumber, colorList, data):
 	'''Performs iteration on the color list'''
+	
+	# remember size of color list
 	size = len(colorList)
-	frac = 0.9994
-	minTemp = 0.1
-	temperature = 10
+
+	# starting amount of errors
 	beginEnergy = len(check.Checklist(colorList, data))
 
 	for i in range(0, iterationNumber):
@@ -32,44 +34,22 @@ def hillclimber(iterationNumber, colorNumber, colorList, data):
 		# color country 
 		newColorList[country] = color
 
-		# update temperature while bigger than 1
-		if temperature > minTemp:
-			temperature = temperature * frac
-
+		# check errors of new version
 		neighborEnergy = len(check.Checklist(newColorList, data))
 
-		# if complete solution is found return solution 
+		# accept change if improved, stop hillclimbing if no errors 
 		if neighborEnergy == 0:
 			colorList = copy.deepcopy(newColorList)
 			break
-		
-		# check if improved
-		verdict = evaluate(temperature, beginEnergy, neighborEnergy)
-
-		# accept better situation
-		if verdict == True:
+		elif neighborEnergy <= beginEnergy:
+			colorList = copy.deepcopy(newColorList)	
 			beginEnergy = neighborEnergy
-			colorList = copy.deepcopy(newColorList)
 
 	return colorList
 
-def evaluate(temperature, beginEnergy, neighborEnergy):
-	'''Compares two color lists and determines which gives the least clashes'''
+def hillclimberMain(data, iterationNumber):
+	'''Calls different functions to perform hillclimber''' 
 
-	# calculate chance 
-	chance = math.exp(-(neighborEnergy - beginEnergy) / temperature)
-
-	# generate number to compare with
-	compare = random.uniform(0.0, 1.0)
-
-	# decide if change is accepted
-	if compare <= chance:
-		return True
-	else:
-		return False
-
-def annealingMain(data, iterationNumber):
-	'''Calls different functions to perform annealing''' 
 	colorNumber = 2 
 
 	# prepare list
@@ -91,9 +71,12 @@ def annealingMain(data, iterationNumber):
 
 		# if errors increase color number
 		colorNumber = colorNumber + 1
-		
+
+
+	graph.makeGraph(colorList, data)
+
 	return colorList 
 
 if __name__ == "__main__":
 	data = socialload.loadData('network1.txt')
-	print annealingMain(data, 10000)
+	print hillclimberMain(data, 10000)
