@@ -21,4 +21,4 @@ def makePlot(filename):
 
 if __name__ == "__main__":
 
-	makePlot('Marten_hillclimber_connectiviteit.csv')
+	makePlot('Jenny_hillclimer_degree_corrected.csv')

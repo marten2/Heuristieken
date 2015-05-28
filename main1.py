@@ -40,6 +40,7 @@ def main():
   	totalConnections, tuplesList = randomconnections.randomConnections(20, 0, 190)
  	# load random social data
  	data = socialload.loadData(tuplesList)
+<<<<<<< HEAD
 
 	# Test degree 
  	# maximum = len(data[lowestcolor.getLongest(data)][1])
@@ -49,15 +50,17 @@ def main():
  	figurelist = figuresearch.buildFigures(data)
 	biggest = figuresearch.findBiggestClique(figurelist)
 
+=======
+>>>>>>> origin/master
 
  	# ---------- End Research part -----------
 
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 
 
- 	# countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
+ 	countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
  	# color countries
-	countryColorList = annealing.annealingMain(data, 10000)
+	# countryColorList = annealing.annealingMain(data, 10000)
 
 	# for i, a in enumerate(countryColorList):
 	# 	if a == None:
@@ -81,21 +84,29 @@ def main():
 	# check if correct
 	# output = check.Checklist(countryColorList, data)
 	
+<<<<<<< HEAD
 	
 	
 	# print results 	
 	# print "Colors:"
+=======
+	colors = check.checkColors(countryColorList)	 
+ 	figurelist = figuresearch.buildFigures(data)
+	biggest = figuresearch.findBiggestClique(figurelist)
+>>>>>>> origin/master
 
- 	# print countryColorList
-	# print "Number of colors used:" + str(colors)	 
+ 	# print output
  	# figurelist = figuresearch.buildFigures(data)
 	# biggest = figuresearch.findBiggestClique(figurelist)
 
+<<<<<<< HEAD
  	# print output
 
  	# Get amount of colors used
 	colors = check.checkColors(countryColorList)
 	#print colors
+=======
+>>>>>>> origin/master
  	#graph.makeGraph(countryColorList, data)
 
  	return [biggest, colors]
