@@ -1,6 +1,7 @@
 
-# takes either list of data or filename and converts in usefll dataset
 def loadData(data):
+	'''converts given data set into usable lists of lists with every connection
+	   for every country. It takes either a list of tuples or string with a filename'''
 	if str(type(data)) == "<type 'str'>":
 		data = importData(data) 
 
@@ -17,6 +18,7 @@ def loadData(data):
 	return output
 
 def importData(filename):
+	'''import data from file, returns a list of tuples'''
 	with open(filename, "r") as fin:
 			data = []
 			for l in fin.readlines():
@@ -25,14 +27,3 @@ def importData(filename):
 				temp[1] = int(temp[1])
 				data.append(temp)
 			return data
-
-def getLength(data):
-	high = 0 
-	for l in data:
-		for a in l:
-			if a > high:
-				high = a
-	return high
-	
-if __name__ == "__main__":
-	loadData("network1.txt")

@@ -19,7 +19,7 @@ def main():
 	'''Calls different functions for the lowestcolor algorithm'''
 
  	# load map data
- 	data = loadin.loadData("IndiaData.csv")
+ 	# data = loadin.loadData("IndiaData.csv")
 
  	# load social data
  	# data = socialload.loadData('network1.txt')
@@ -35,7 +35,7 @@ def main():
 
   	totalConnections, tuplesList = randomconnections.randomConnections(20, 0, 190)
  	# load random social data
- 	#data = socialload.loadData(tuplesList)
+ 	data = socialload.loadData(tuplesList)
 
  	# ---------- End Research part -----------
 
@@ -44,16 +44,16 @@ def main():
  	# maximum = len(data[lowestcolor.getLongest(data)][1])
  	# print "Maximum connections:" + str(maximum)
 
- 	# countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
+ 	countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
  	# color countries
-	countryColorList = annealing.annealingMain(data, 10000)
+	# countryColorList = annealing.annealingMain(data, 10000)
 
 	# for i, a in enumerate(countryColorList):
 	# 	if a == None:
 	# 		countryColorList = lowestcolor.lowestColor(data, i, countryColorList)
 
 
- 	maximum = lowestcolor.getLongest(data)
+ 	# maximum = lowestcolor.getLongest(data)
  	# print maximum of connections
  	# print "Maximum connections:" + str(maximum)
 
@@ -67,19 +67,13 @@ def main():
 	# check if correct
 	# output = check.Checklist(countryColorList, data)
 	
-	colors = check.checkColors(countryColorList)
-	# print colors
-	# print results 	
-	# print "Colors:"
-
- 	# print countryColorList
-	# print "Number of colors used:" + str(colors)	 
- 	# figurelist = figuresearch.buildFigures(data)
-	# biggest = figuresearch.findBiggestClique(figurelist)
-
- 	# print output
+	colors = check.checkColors(countryColorList)	 
  	figurelist = figuresearch.buildFigures(data)
 	biggest = figuresearch.findBiggestClique(figurelist)
+
+ 	# print output
+ 	# figurelist = figuresearch.buildFigures(data)
+	# biggest = figuresearch.findBiggestClique(figurelist)
 
  	#graph.makeGraph(countryColorList, data)
 
