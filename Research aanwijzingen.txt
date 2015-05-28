@@ -1,0 +1,27 @@
+Research aanwijzingen:
+
+---- Test Degree (maximale graad) ---- 
+
+nodes: 20  connections: (190, 190) 
+
+Main returns: [maximum, colors]
+
+---- Test total connections (connectiedichtheid) ----
+
+nodes: 20  connections: (0, 190) 
+
+Main returns: [totalConnections, colors]
+
+---- Test biggest clique(clique) ----
+
+nodes: 20  connections: (0, 190) 
+
+Main returns: [biggest, colors]
+
+!!!!!!!!! OPLETTEN !!!!!!!!!!
+
+Naam in Runforrest bij elke run aanpassen naar format: NaamTestPersoon_NaamAlgoritme_NaamFactor
+
+Bijv: jeroen_clockwise_maximum
+
+Let ook op het selecteren van de juiste main in runforrest
