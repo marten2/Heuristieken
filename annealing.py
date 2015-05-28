@@ -13,6 +13,7 @@ def hillclimber(iterationNumber, colorNumber, colorList, data):
 	frac = 0.9994
 	minTemp = 0.1
 	temperature = 10
+	beginEnergy = len(check.Checklist(colorList, data))
 
 	for i in range(0, iterationNumber):
 
@@ -36,52 +37,40 @@ def hillclimber(iterationNumber, colorNumber, colorList, data):
 		if temperature > minTemp:
 			temperature = temperature * frac
 
-		# check if improved
-		verdict = evaluate(colorList, newColorList, data, temperature)
+		neighborEnergy = len(check.Checklist(newColorList, data))
 
-		# accept change if improved, stop hillclimbing if no errors 
-		if verdict == 2:
+		# if complete solution is found return solution 
+		if neighborEnergy == 0:
+			colorList = copy.deepcopy(newColorList)
 			break
-		elif verdict == 1:
+		
+		# check if improved
+		verdict = evaluate(temperature, beginEnergy, neighborEnergy)
+
+		# accept better situation
+		if verdict == True:
+			beginEnergy = neighborEnergy
 			colorList = copy.deepcopy(newColorList)
 
 	return colorList
 
-def evaluate(colorList, newColorList, data, temperature):
+def evaluate(temperature, beginEnergy, neighborEnergy):
 	'''Compares two color lists and determines which gives the least clashes'''
 
-	# check errors for both new and old versions
-	beginEnergy = len(check.Checklist(colorList, data))
-	neighborEnergy = len(check.Checklist(newColorList, data))
-
-	# stop hillclimber if there are no errors
-	if beginEnergy == 0:
-		return 2
-	
-	if neighborEnergy <= beginEnergy:
-		return 1
-	else:
-		return 0
-
 	# calculate chance 
-	#chance = math.exp(-(neighborEnergy - beginEnergy) / temperature)
+	chance = math.exp(-(neighborEnergy - beginEnergy) / temperature)
 
 	# generate number to compare with
-	#compare = random.uniform(0.0, 1.0)
+	compare = random.uniform(0.0, 1.0)
 
 	# decide if change is accepted
-	#if compare <= chance:
-	#	return 1
-	#else:
-	#	return 0
+	if compare <= chance:
+		return True
+	else:
+		return False
 
 def annealingMain(data, iterationNumber):
 	'''Calls different functions to perform annealing''' 
-
-	# set clique number as initial color number
- 	#figurelist = figuresearch.buildFigures(data)
- 	#biggest = figuresearch.findBiggestClique(figurelist)
-
 	colorNumber = 2 
 
 	# prepare list
@@ -107,12 +96,9 @@ def annealingMain(data, iterationNumber):
 
 		# if errors increase color number
 		colorNumber = colorNumber + 1
-
-	print colorNumber
-	#graph.makeGraph(colorList, data)
-
+		
 	return colorList 
 
 if __name__ == "__main__":
 	data = socialload.loadData('network1.txt')
-	annealingMain(data, 10000)
+	print annealingMain(data, 10000)
