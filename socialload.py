@@ -27,3 +27,11 @@ def importData(filename):
 				temp[1] = int(temp[1])
 				data.append(temp)
 			return data
+
+def getLength(data):
+	high = 0 
+	for l in data:
+		for a in l:
+			if a > high:
+				high = a
+	return high
