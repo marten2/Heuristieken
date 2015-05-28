@@ -12,7 +12,7 @@ import annealing
 import degreecolor
 import time
 
-start_time = time.time()
+
 
 
 def main():
@@ -23,6 +23,10 @@ def main():
 
  	# load social data
  	# data = socialload.loadData('network1.txt')
+
+	
+
+
 
  	# ---------- Research part -----------
 
@@ -36,13 +40,23 @@ def main():
   	totalConnections, tuplesList = randomconnections.randomConnections(20, 0, 190)
  	# load random social data
  	data = socialload.loadData(tuplesList)
+<<<<<<< HEAD
+
+	# Test degree 
+ 	# maximum = len(data[lowestcolor.getLongest(data)][1])
+ 	# print "Maximum connections:" + str(maximum)
+
+	# Research biggest clique
+ 	figurelist = figuresearch.buildFigures(data)
+	biggest = figuresearch.findBiggestClique(figurelist)
+
+=======
+>>>>>>> origin/master
 
  	# ---------- End Research part -----------
 
  	# make empty array for storing colors
  	countryColorList = [None] * len(data) 
- 	# maximum = len(data[lowestcolor.getLongest(data)][1])
- 	# print "Maximum connections:" + str(maximum)
 
  	countryColorList = Marten_hillclimber.algorithm(data, countryColorList)
  	# color countries
@@ -59,6 +73,9 @@ def main():
 
  	# sortedData = degreecolor.sortOnEdges(data)
 
+ 	# for element in sortedData:
+ 	# 	countryColorList = lowestcolor.determineColor(data, element[0], countryColorList)
+
 	# for i, a in enumerate(countryColorList):
 	# 	if a == None:
 	# 		countryColorList = lowestcolor.lowestColor(data)
@@ -67,14 +84,29 @@ def main():
 	# check if correct
 	# output = check.Checklist(countryColorList, data)
 	
+<<<<<<< HEAD
+	
+	
+	# print results 	
+	# print "Colors:"
+=======
 	colors = check.checkColors(countryColorList)	 
  	figurelist = figuresearch.buildFigures(data)
 	biggest = figuresearch.findBiggestClique(figurelist)
+>>>>>>> origin/master
 
  	# print output
  	# figurelist = figuresearch.buildFigures(data)
 	# biggest = figuresearch.findBiggestClique(figurelist)
 
+<<<<<<< HEAD
+ 	# print output
+
+ 	# Get amount of colors used
+	colors = check.checkColors(countryColorList)
+	#print colors
+=======
+>>>>>>> origin/master
  	#graph.makeGraph(countryColorList, data)
 
  	return [biggest, colors]
@@ -85,5 +117,6 @@ def main():
 
 
 if __name__ == "__main__":
+	start_time = time.time()
 	main()
 	print("--- %s seconds ---" % (time.time() - start_time))
