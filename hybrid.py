@@ -5,15 +5,15 @@ import random
 import copy
 
 
-def hillClimber(CCL, data, max_col, max_error):
+def hillClimber(colorList, data, max_col, max_error):
 	''''Implements hillclimber algorithm on data
 		optimizing on clashes in colorlist,
 		returns optimized colorlist'''
 	i = 0
-	size = len(CCL)
+	size = len(colorList)
 	while(i < 10000):
 		# make copy to save optimal situation
-		temp = copy.deepcopy(CCL)
+		temp = copy.deepcopy(colorList)
 
 		# select random element to change
 		element = random.randint(0, size - 1)
@@ -31,11 +31,11 @@ def hillClimber(CCL, data, max_col, max_error):
 			
 			# save new sitiuation 
 			max_error = new_len
-			CCL = temp
+			colorList = temp
 			if new_len == 0:
-				return CCL
+				return colorList
 		i += 1
-	return CCL
+	return colorList
 
 def chaneBuild(shell, data, edgeData, chane, chaned):
 	'''Build a chane of elements that are connected from 
@@ -62,7 +62,7 @@ def chaneBuild(shell, data, edgeData, chane, chaned):
 		chane, chaned = chaneBuild(shell, data, edgeData, chane, chaned)
 	return chane, chaned
 
-def chaneColoring(CCL, data, max_col, edgeData):
+def chaneColoring(colorList, data, max_col, edgeData):
 	'''Aply chane algorithm to last clashes in data,
 	   data contains the clashes returns colorlist'''
 	chanes = []
@@ -84,16 +84,16 @@ def chaneColoring(CCL, data, max_col, edgeData):
 			# color all even links in chane
 			if i % 2 == 0:
 				for b in a:
-					CCL[b] = max_col + 1
+					colorList[b] = max_col + 1
 
-	return CCL
+	return colorList
 
 def algorithm(data):
 	'''Run hybrid algorithm, return color list'''
-	CCL = [0] * len(CCL) 
+	colorList = [0] * len(data) 
 	for i in range(1, 100):
-		CCL = hillClimber(CCL, data, i, len(check.Checklist(CCL, data)))
-		if  len(check.Checklist(CCL, data)) == 0:
+		colorList = hillClimber(colorList, data, i, len(check.Checklist(colorList, data)))
+		if  len(check.Checklist(colorList, data)) == 0:
 			break
-		chaneColoring(CCL, check.Checklist(CCL, data), i, data)
-	return CCL
+		chaneColoring(colorList, check.Checklist(colorList, data), i, data)
+	return colorList

@@ -21,7 +21,8 @@ To do list
 		4.6 Hybrid
 		4.7 Resultaten (matplot lib, )
 	5. Conlusie
-	6. Vervolgonderzoek - gestructureerde graaf, onderlingen correlatie verbanden, 
+	6. Vervolgonderzoek - gestructureerde graaf, onderlingen correlatie verbanden,
+	7. Animatie maken voor ketting -> Jeroen 
 
 - Algoritmes
 	1. Clockwise..  degree (opnieuw: zonder variatie connectivity), test connectivity, test clique (let op figure search aanpassen)(vandaag)
