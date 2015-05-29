@@ -32,7 +32,7 @@ def determineColor(edgeData, country, countryColorList):
 	return countryColorList
 
 def shellSelect(shell, edgeData, countryColorList):
-	''' Returns borders of former shell, for the shell algorithm ''' 
+	''' Returns borders of former shell ''' 
 	totalConnections = []
 
 	# sellect all possible connection for next shell
@@ -71,20 +71,3 @@ def lowestColor(data, start):
 		# color countries in shell
 		for country in shell:
 			countryColorList = determineColor(data, country, countryColorList)
-
-def sortOnEdges(edgeData):
-	''' Sorts nodes on number of connections, for degree algorithm''' 
-
-	for index in range (1, len(edgeData)):
-		position = index
-		currentValue = edgeData[index] 
-
-		# use binary sort to sort list of nodes 
-		while position > 0 and len(edgeData[position - 1][1]) < len(currentValue[1]):
-			temp = edgeData[position]
-			edgeData[position] = edgeData[position - 1]
-			edgeData[position - 1] = temp
-			position = position - 1
-
-	return edgeData
-
