@@ -44,14 +44,14 @@ def shellSelect(shell, edgeData, countryColorList):
 			if a not in totalConnections:
 				if not countryColorList[a]:
 					totalConnections.append(a)
-
+	print totalConnections
 	# return the shell
 	return totalConnections
 
-def lowestColor(data):
+def lowestColor(data, countryColorList):
 	''' Calls functions to color the map '''
 	start = getLongest(data)
-	countryColorList = [None] * len(data)
+	# countryColorList = [None] * len(data)
 	shell = [start] 
 
 	while(True):
