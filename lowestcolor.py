@@ -44,7 +44,6 @@ def shellSelect(shell, edgeData, countryColorList):
 			if a not in totalConnections:
 				if not countryColorList[a]:
 					totalConnections.append(a)
-	print totalConnections
 	# return the shell
 	return totalConnections
 
@@ -57,10 +56,10 @@ def lowestColor(data, countryColorList):
 	while(True):
 
 		# determine countries to be colored
-		# shell = shellSelect(shell, data, countryColorList)
+		shell = shellSelect(shell, data, countryColorList)
 
 		# Clockwise select
-		shell = clockwiseShellSelectNew.clockwiseShellSelect(shell, data, countryColorList)
+		# shell = clockwiseShellSelectNew.clockwiseShellSelect(shell, data, countryColorList)
 		
 
 		# exit if done

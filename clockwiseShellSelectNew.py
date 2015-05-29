@@ -17,7 +17,6 @@ def clockwiseShellSelect(shell, edgeData, countryColorList):
 		sets = [set(edgeData[newCountry][1]), set(temp)]
 		sameNeighbours = list(set.intersection(*sets))
 		sameNeighboursLength = len(sameNeighbours)
-		# print newCountry,sameNeighbours,sameNeighboursLength
 
 		if sameNeighboursLength <= 0:
 			if newCountry not in totalConnections:
@@ -28,6 +27,5 @@ def clockwiseShellSelect(shell, edgeData, countryColorList):
 				if neighbour not in totalConnections:
 					if not countryColorList[neighbour]:
 						totalConnections.append(neighbour)
-	print temp, totalConnections
 	# return the shell
 	return totalConnections

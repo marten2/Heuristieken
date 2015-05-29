@@ -22,7 +22,7 @@ def main():
  	# data = loadin.loadData("SPAINdata.csv")
 
  	# load social data
- 	data = socialload.loadData('network2.txt')
+ 	# data = socialload.loadData('network2.txt')
 
 	
 
@@ -37,9 +37,9 @@ def main():
  	# Determine amount of connections
  	# totalConnections = randomconnections.randomConnections(n, 1000, 10000)
 
-  	# totalConnections, tuplesList = randomconnections.randomConnections(20, 0, 190)
+  	totalConnections, tuplesList = randomconnections.randomConnections(20, 0, 190)
  	# load random social data
- 	# data = socialload.loadData(tuplesList)
+ 	data = socialload.loadData(tuplesList)
 
 	# Test degree 
  	# maximum = len(data[lowestcolor.getLongest(data)][1])
@@ -64,8 +64,8 @@ def main():
 	# 		countryColorList = lowestcolor.lowestColor(data, i, countryColorList)
 
 
- 	maximum = lowestcolor.getLongest(data)
- 	print maximum
+ 	# maximum = lowestcolor.getLongest(data)
+ 	# print maximum
  	# print maximum of connections
  	# print "Maximum connections:" + str(maximum)
 
@@ -98,7 +98,7 @@ def main():
 
  	# Get amount of colors used
 	colors = check.checkColors(countryColorList)
-	print colors
+	# print colors
 
  	#graph.makeGraph(countryColorList, data)
 
